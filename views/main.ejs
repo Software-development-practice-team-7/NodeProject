@@ -1,13 +1,75 @@
-<!-- views/hello.ejs -->
-
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Hello World!</title>
-    <!-- link rel="stylesheet" href="/css/master.css" -->
-  </head>
-  <body>
-    <h1>Hellonod</h1>
-  </body>
+<head>
+<style>
+body {
+  margin: 0;
+}
+
+#verticalmenu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+#horizontalmenu {
+  margin  : 0;
+  padding : 0;
+}
+.horielementli{
+  list-style-type: none;
+  display: inline-block;
+}
+.horielementa{
+  display: block;
+  padding: 6px 18px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+  transition: all 0.3s ease-in-out;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: #555;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<ul id='verticalmenu'> 
+  <li><a class="active" href="#">홈</a></li>
+  <li><a href="#">공지사항</a></li>
+  <li><a href="#">소개</a></li>
+  <li><a href="#">자유게시판</a></li>
+</ul>
+
+<div style="margin-left:25%;padding:1px 16px;height:1000px;">
+<ul id = horizontalmenu>
+  <li class = "horielementli"><a href="#" class="horielementa">시간표</a></li>
+  <li class = "horielementli"><a href="#" class="horielementa">전체 수강 과목</a></li>
+  <li class = "horielementli"><a href="#" class="horielementa">item3</a></li>
+  <li class = "horielementli"><a href="#" class="horielementa">item4</a></li>
+
+</ul>
+</div>
+</body>
 </html>
