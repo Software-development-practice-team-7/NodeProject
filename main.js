@@ -1,15 +1,16 @@
 var http = require("http");
 var fs = require("fs");
+var path = require('path');
 
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
-//var db_config = require(dirname + "/config/database.js");
-//var conn = db_config.init();
+var cookieParser = require('cookie-parser');
+var static = require('serve-static');
+var errorHandler = require('error-handler');
+var expressErrorHandler = require('express-error-handler');
+var expressSession = require('express-session');
 
-//db_config.connect(conn);
-
-//app.set("views", dirname + "/views");
 app.set("view engine", "ejs");
 
 app.use(bodyParser.json());
