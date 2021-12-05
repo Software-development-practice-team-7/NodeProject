@@ -26,8 +26,8 @@ app.get("/", function (req, res) {
 });
 
 //게시판 페이지
-app.get("/board.html", function (req, res) {
-  res.render("board.ejs");
+app.get("/subjectlist.html", function (req, res) {
+  res.render("subjectlist.ejs");
 });
 
   app.listen(4000, () => console.log("Server is running on port 4000..."));
