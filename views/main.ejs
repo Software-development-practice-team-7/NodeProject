@@ -58,12 +58,14 @@ table, th, td {
     width : 100px;
     height: 40px;
 }
-th, td {
+td {
     padding: 20px;
+    
 }
 th {
     text-align: center;
 }
+
 
 </style>
 </head>
@@ -77,9 +79,9 @@ th {
 </ul>
 
 <div style="margin-left:25%;padding:1px 16px;height:1000px;">
-<ul id = horizontalmenu>
-  <li class = "horielementli"><a href="#" class="horielementa">시간표</a></li>
-  <li class = "horielementli"><a href="#" class="horielementa">전체 수강 과목</a></li>
+<ul id = "horizontalmenu">
+  <li class = "horielementli"><a href="/" class="horielementa">시간표</a></li>
+  <li class = "horielementli"><a href="subjectlist.html" class="horielementa">전체 수강 과목</a></li>
   <li class = "horielementli"><a href="#" class="horielementa">item3</a></li>
   <li class = "horielementli"><a href="#" class="horielementa">item4</a></li>
 
@@ -89,7 +91,7 @@ th {
 <table style="width:100%">
   <caption>OOO의 2018년도 2학기의 시간표 입니다.</caption>
  
-   <tr>
+   <tr class="colored">
      <th> </th>
      <th>월</th>
      <th>화</th>
@@ -97,54 +99,69 @@ th {
      <th>목</th>
      <th>금</th>
    </tr>
-     <tr>
-     <th>1교시</th>
-     <td style = "background : Plum  ;">문화와 역사2</td>
-     <td> </td>
-     <td style = "background : LavenderBlush ;"rowspan="2">정보통신융합공학개론</td>
-     <td style = "background : Pink ;" rowspan="2">화일구조</td>
-     <td style = "background : LightGoldenRodYellow;" rowspan="2">참삶의길</td>
+   <tr class="colored">
+    <th>1교시</th>
+     <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+     <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+     <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+     <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>   
+     <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>    
     </tr>
-     <tr>
-     <th>2교시</th>
-     <td> </td>
-     <td> </td>
+    <tr class="colored">
+      <th>2교시</th>
+      <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+      <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+      <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+      <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>   
+      <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>    
    </tr>
-     <tr>
-     <th>3교시</th>
-     <td> </td>
-     <td> </td>
-     <td style = "background : LightCyan  ;" rowspan="2">프로그래밍언어구조론</td>
-     <td style = "background : Lavender;" rowspan="2">웹/xml프로그래밍</td>
-     <td> </td>
+   <tr class="colored">
+    <th>3교시</th>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>   
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>    
    </tr>
-    <tr>
-     <th>4교시</th>
-     <td> </td>
-     <td> </td>
-     <td> </td>
+   <tr class="colored">
+    <th>4교시</th>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>   
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>      
    </tr>
-    <tr>
-     <th>5교시</th>
-     <td style = "background : Lavender  ;" rowspan="2">웹/xml프로그래밍</td>
-     <td style = "background : Salmon  ;" rowspan="4">c++ </td>
-     <td style = "background : MintCream  ;" rowspan="4">임베디드프로그래밍실습</td>
-     <td style = "background : Wheat   ;" rowspan="4">리눅스컴퓨팅실무</td>
-     <td> </td>
+   <tr class="colored">
+    <th>5교시</th>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>   
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>     
    </tr>
-    <tr>
-     <th>6교시</th>
-     <td> </td>
+   <tr class="colored">
+    <th>6교시</th>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>   
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>     
    </tr>
-    <tr>
-     <th>7교시</th>
-     <td> </td>
-     <td> </td>
+   <tr class="colored">
+    <th>7교시</th>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>   
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>     
    </tr>
-   <tr>
+   <tr class="colored">
     <th>8교시</th>
-    <td style = "background : LightCyan  ;">프로그래밍언어구조론</td>
-    <td> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>   
+    <td  onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"><a href="#"></a> </td>    
    </tr>
  
  </table>
