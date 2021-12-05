@@ -66,6 +66,30 @@ th {
     text-align: center;
 }
 
+tr.colored:nth-child(even){
+
+background-color:#aaaaaa;
+
+color:#000000;
+
+}
+
+tr.colored:nth-child(odd){
+
+background-color:#444444;
+
+color:#FFFFFF;
+
+}
+
+tr.colored:hover td{
+
+background-color:#f3e9e9 !important;
+
+color:#303f39 !important;
+
+}
+
 
 </style>
 </head>
@@ -84,10 +108,21 @@ th {
   <li class = "horielementli"><a href="subjectlist.html" class="horielementa">전체 수강 과목</a></li>
   <li class = "horielementli"><a href="#" class="horielementa">item3</a></li>
   <li class = "horielementli"><a href="#" class="horielementa">item4</a></li>
-
 </ul>
-
-
+    <table style="width:100%">
+        <tr>
+          <th> </th>
+            <th>수업 번호</th>
+            <th>분반</th>
+            <th>교과명</th>
+            <th>교수명</th>
+            <th>과목분류</th>
+            <th>학점</th>  
+        </tr>
+        <tr  class="colored">
+            <th></th>
+        </tr>
+    </table>
 
 </div>
 
