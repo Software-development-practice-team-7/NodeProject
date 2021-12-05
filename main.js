@@ -42,6 +42,17 @@ function connectDB(){
 
     console.log('데이터베이스에 연결되었습니다. :' + databaseUrl);
 
+    var subjects = db.db("SubjectDB");
+    subjects.collection("item").find({}).toArray(function(err, result) {
+
+      if (err) throw err;
+  
+      console.log(result);
+  
+      db.close();
+  
+    });
+
     database = db;
   });
 }
