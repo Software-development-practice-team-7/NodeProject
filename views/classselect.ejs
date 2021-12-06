@@ -137,7 +137,7 @@
   <div>
     <table style="width:90%">
         <tr>
-          <th> </th>
+          <th> 번호</th>
             <th>수업 번호</th>
             <th>분반</th>
             <th>교과명</th>
@@ -147,7 +147,7 @@
           </tr>
             <% for(var i = 0; i< posts.length; i++) { %>
               <tr  class="colored">
-                <th></th>
+                <th> <%= i+1 %></th>
                 <th><%= posts[i].S_Num %></th>
                 <th><%= posts[i].C_Num %></th>
                 <th><%= posts[i].name %></th>
