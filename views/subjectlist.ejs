@@ -1,140 +1,166 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<style>
-body {
-  margin: 0;
-}
+  <meta charset="UTF-8">
+  <title>시간표</title>
 
-#verticalmenu {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 25%;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-}
+  <!--   <link rel="stylesheet" type="text/css" href="style.css" >-->
+  <style>
+    nav {
+      font-size: 12pt;
+      position: relative;
+    }
 
-#horizontalmenu {
-  margin  : 50px;
-  padding : 0;
-}
-.horielementli{
-  list-style-type: none;
-  display: inline-block;
-}
-.horielementa{
-  display: block;
-  padding: 6px 18px;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-weight: bold;
-  color: #333;
-  transition: all 0.3s ease-in-out;
-}
+    nav ul {
+      padding: 0;
+      margin: 0 ;
+      width: 100%;
+    }
 
-li a {
-  display: block;
-  color: #000;
-  padding: 8px 16px;
-  text-decoration: none;
-}
+    nav a {
+      line-height: 50px;
+      height: 50px;
+    }
 
-li a.active {
-  background-color: #555;
-  color: white;
-}
+    nav li a {
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+    }
 
-li a:hover:not(.active) {
-  background-color: #555;
-  color: white;
-}
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    text-align: center;
-    width : 100px;
-    height: 40px;
-}
-td {
-    padding: 20px;
-    
-}
-th {
-    text-align: center;
-}
+    nav li:last-child a {
+      border-right: 0;
+    }
 
-tr.colored:nth-child(even){
+    nav a#pull {
+      display: none;
+    }
 
-background-color:#aaaaaa;
+    .clearfix {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      background-color: rgb(194, 3, 30);
+      line-height: 100px;
+    }
 
-color:#000000;
+    li {
+      position: relative;
+      display: inline-block;
+    }
 
-}
+    li a {
+      color: #fcfcfc;
+      text-align: center;
+      padding: 14.5px 80px;
+      text-decoration: none;
 
-tr.colored:nth-child(odd){
+    }
 
-background-color:#444444;
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+      /*width: 5px;
+      height: 30px;*/
+    }
 
-color:#FFFFFF;
+    table {
+      float: right;
+      margin-right: 50px;
+      margin-bottom: 50px;
+      
+    }
 
-}
+    td {
+      padding: 30px;
+    }
 
-tr.colored:hover td{
+    th {
+      text-align: center;
 
-background-color:#f3e9e9 !important;
+    }
+   
 
-color:#303f39 !important;
-
-}
-
-
-</style>
+    body {
+      width: 100%;
+      margin-top: 0%;
+      margin-left: 0;
+      margin-bottom: 0%;
+      margin-right: 0%;
+      position: absolute;
+    }
+    #listmenu {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 20%;
+      background-color: #ffffff;
+      position: sta;
+      height: 100%;
+      overflow: auto;
+    }
+  </style>
 </head>
+
+<!-- 아래부터 상단 메뉴바 -->
+
 <body>
+  <header>
+    <div class="menu">
+      <nav class="clearfix">
+        <ul class="clearfix">
+          <li><a href="/"><img src="dsulogo.PNG" style="float:left; height: 100px;"></a></li>
+          <li><a href="/">시간표</a></li>
+          <li><a href="subjectlist.html">전체수강조회</a></li>
+          <li><a href="">신청내역조회</a></li>
+          <li><a href="">시간</a></li>
+        </ul>
+        <a id="pull" href="#"></a>
+      </nav>
+    </div>
+  </header>
+  <div style="clear: both;">
+    <ul class='listmenu'>
+      <li>학년</li>
+      <li>전공</li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <div style="clear: both;"></div>
 
-<ul id='verticalmenu'> 
-  <li><a class="active" href="#">홈</a></li>
-  <li><a href="#">공지사항</a></li>
-  <li><a href="#">소개</a></li>
-  <li><a href="#">자유게시판</a></li>
-</ul>
-
-<div style="margin-left:25%;padding:1px 16px;height:1000px;">
-<ul id = "horizontalmenu">
-  <li class = "horielementli"><a href="/" class="horielementa">시간표</a></li>
-  <li class = "horielementli"><a href="subjectlist.html" class="horielementa">전체 수강 과목</a></li>
-  <li class = "horielementli"><a href="#" class="horielementa">item3</a></li>
-  <li class = "horielementli"><a href="#" class="horielementa">item4</a></li>
-</ul>
-    <table style="width:100%">
-        <tr>
-          <th> </th>
-            <th>수업 번호</th>
-            <th>분반</th>
-            <th>교과명</th>
-            <th>교수명</th>
-            <th>과목분류</th>
-            <th>학점</th>
+  <!-- 아래부터 테이블 -->
+  <div>
+    <table style="width:90%">
+      <tr>
+        <th> </th>
+          <th>수업 번호</th>
+          <th>분반</th>
+          <th>교과명</th>
+          <th>교수명</th>
+          <th>과목분류</th>
+          <th>학점</th>
+        </tr>
+          <% for(var i = 0; i< posts.length; i++) { %>
+            <tr  class="colored">
+              <th></th>
+              <th><%= posts[i].S_Num %></th>
+              <th><%= posts[i].C_Num %></th>
+              <th><%= posts[i].name %></th>
+              <th><%= posts[i].P_name %></th>
+              <th><%= posts[i].S_Div %></th>
+              <th><%= posts[i].S_Credit %></th>
           </tr>
-            <% for(var i = 0; i< posts.length; i++) { %>
-              <tr  class="colored">
-                <th></th>
-                <th><%= posts[i].S_Num %></th>
-                <th><%= posts[i].C_Num %></th>
-                <th><%= posts[i].name %></th>
-                <th><%= posts[i].P_name %></th>
-                <th><%= posts[i].S_Div %></th>
-                <th><%= posts[i].S_Credit %></th>
-            </tr>
-            <% } %>  
-        
-        
-    </table>
-
-</div>
+          <% } %>  
+      
+      
+  </table>
+  </div>
 
 </body>
+
 </html>

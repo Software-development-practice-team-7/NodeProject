@@ -46,6 +46,28 @@ app.get("/subjectlist.html", function (req, res) {
   });
 }); 
 
+//수강신청 페이지
+app.get("/classselect.html", function (req, res) {
+  var databaseUrl = "mongodb://localhost:27017/local";
+  MongoClient.connect(databaseUrl, function (err, db) {
+    if (err != null) {
+      res.send("에러 내용:" + err);
+    } else {
+      var subjects = db.db("SubjectDB");
+      subjects
+        .collection("item")
+        .find({})
+        .toArray(function (err, result) {
+          if (err) throw err;
+
+          res.render("subjectlist.ejs", { posts: result });
+          console.log(result);
+        });
+    }
+  });
+}); 
+
+
 app.listen(4000, () => console.log("Server is running on port 4000..."));
 //connectDB();
 
