@@ -44,7 +44,7 @@ app.get("/subjectlist.html", function (req, res) {
         });
     }
   });
-});
+}); 
 
 app.listen(4000, () => console.log("Server is running on port 4000..."));
 //connectDB();
