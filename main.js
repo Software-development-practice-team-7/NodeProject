@@ -46,10 +46,10 @@ app.get("/subjectlist.html", function (req, res) {
   });
 }); 
 
+//수강 신청 페이지
 app.post('/select.html',function(req, res){
   var day, time;
   var date = req.body.date;
-  var grade = req.body.grade
 
   if(date/10 < 2){
     day = '월';
@@ -83,6 +83,28 @@ app.post('/select.html',function(req, res){
   });
 })
 
+//수강 완료 페이지
+app.post('/selectkist.html',function(req, res){
+  var s_num = req.body.s_num;
+  var c_num = req.body.c_num;
+
+  var databaseUrl = "mongodb://localhost:27017/local";
+  MongoClient.connect(databaseUrl, function (err, db) {
+    if (err != null) {
+      res.send("에러 내용:" + err);
+    } else {
+      var subjects = db.db("SubjectDB");
+      subjects
+        .collection("item")
+        .find({S_Num: s_num, C_Num:c_num})
+        .toArray(function (err, result) {
+          if (err) throw err;
+          res.render("select.ejs", { posts: result });
+          console.log(result);
+        });
+    }
+  });
+})
 
 app.listen(4000, () => console.log("Server is running on port 4000..."));
 //connectDB();
