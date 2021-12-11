@@ -2,163 +2,198 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <title>시간표</title>
+    <meta charset="utf-8">
+    <title>레이아웃 연습</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-  <!--   <link rel="stylesheet" type="text/css" href="style.css" >-->
-  <style>
-    nav {
-      font-size: 12pt;
-      position: relative;
-    }
+        body {
+            margin: 0;
+        }
 
-    nav ul {
-      padding: 0;
-      margin: 0;
-      width: 100%;
-    }
+        /*네이게이션*/
+        #header {
+            height: 100px;
+            width: 100%;
+            background-color: rgb(194, 3, 30);
 
-    nav a {
-      line-height: 50px;
-      height: 50px;
-    }
+        }
 
-    nav li a {
-      box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-    }
+        /*개인정보 선택*/
+        #aside {
+            width: 250px;
+            height: 100%;
+            background: #b8b9be;
+            position: absolute;
+            
+            float: left;
+        }
 
-    nav li:last-child a {
-      border-right: 0;
-    }
+        /*시간표들어가는 공간*/
+        #contents {
+            width: 80%;
+            height: 70%;
+            margin-top: 2%;
+            float: right;
+        }
 
-    nav a#pull {
-      display: none;
-    }
+        /*시간표 테이블*/
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
 
-    .clearfix {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      background-color: rgb(194, 3, 30);
-      line-height: 100px;
-    }
+        table {
+            margin-right: 40px;
+            margin-bottom: 40px;
+        }
 
-    li {
-      position: relative;
-      display: inline-block;
-    }
+        td {
+            padding: 30px;
+        }
 
-    li a {
-      color: #fcfcfc;
-      text-align: center;
-      padding: 14.5px 80px;
-      text-decoration: none;
+        th {
+            text-align: center;
+        }
 
-    }
+        li {
+            position: relative;
+            display: inline-block;
+        }
 
-    table,
-    th,
-    td {
-      border: 1px solid black;
-      border-collapse: collapse;
-      text-align: center;
-      /*width: 5px;
-      height: 30px;*/
-    }
+        li a {
+            color: #fcfcfc;
 
-    table {
-      float: right;
-      margin-right: 50px;
-      margin-bottom: 50px;
+            text-align: center;
+            padding: 14.5px 80px;
+            text-decoration: none;
+        }
 
-    }
+        nav {
+            font-size: 12pt;
+            position: relative;
+        }
 
-    td {
-      padding: 30px;
-    }
+        nav ul {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
 
-    th {
-      text-align: center;
+        nav a {
+            line-height: 100px;
+            height: 50px;
+        }
 
-    }
+        nav li a {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
 
+        nav li:last-child a {
+            border-right: 0;
+        }
 
-    body {
-      width: 100%;
-      margin-top: 0%;
-      margin-left: 0;
-      margin-bottom: 0%;
-      margin-right: 0%;
-      position: absolute;
-    }
-
-    #listmenu {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      width: 20%;
-      background-color: #ffffff;
-      position: sta;
-      height: 100%;
-      overflow: auto;
-    }
-  </style>
-
-  <script>
-    var i, j;
-    var starttime = new Array;
-    //starttime[j][i] = 10 * j + i;
-    //document.getElementById("date1").value = starttime[j][i];
-
-    function run() {
-      window.open("/classselect.html","new", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=700, left=0, top=0");
-    }
-
-    function popupOpen(){
-		var url= "/classselect.html";    //팝업창에 출력될 페이지 URL
-		var winWidth = 700;
-	    var winHeight = 600;
-	    var popupOption= "width="+winWidth+", height="+winHeight;    //팝업창 옵션(optoin)
-	    var myWindow = window.open(url,"TestName",popupOption);
-	    myWindow.document.write("<h1>"+myWindow.name+"</h1>");
-	}
-
-  </script>
-</head>
-
-<!-- 아래부터 상단 메뉴바 -->
+        nav a#pull {
+            display: none;
+        }
+        
+        /*선택박스 옵션*/
+        .box {
+            width: 150px;
+            padding: 30px;
+            border-radius: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background: #52b1ce;
+        }
+    </style>
 
 <body>
-  <header>
-    <div class="menu">
-      <nav class="clearfix">
-        <ul class="clearfix">
-          <li><a href="/"><img src="dsulogo.PNG" style="float:left; height: 100px;"></a></li>
-          <li><a href="/">시간표</a></li>
-          <li><a href="subjectlist.html">전체수강조회</a></li>
-          <li><a href="">신청내역조회</a></li>
-          <li><a href="">시간</a></li>
-        </ul>
-        <a id="pull" href="#"></a>
-      </nav>
-    </div>
-  </header>
-  <div style="clear: both;">
-    <ul class='listmenu'>
-      <li>학년</li>
-      <li>전공</li>
-      <li></li>
-      <li></li>
-    </ul>
-  </div>
-  <div style="clear: both;"></div>
+    <div>
+        <div id="header">
+            <div>
+                <nav class="clearfix">
+                    <ul class="clearfix">
+                        <li><a href=""><img src="dsulogo.PNG" style="float:left; height: 100px;"></a></li>
+                        <li><a href="">시간표</a></li>
+                        <li><a href="">전체수강조회</a></li>
+                        <li><a href="">신청내역조회</a></li>
+                        <li><a href="">시간</a></li>
+                    </ul>
+                    <a id="pull" href="#"></a>
+                </nav>
+            </div>
+        </div>
+        <div>
+            <div id="aside">
+                <br><br><br>
+                <div class="box">
+                <form method="get" action="SelectServlet">
+                    <label for="job">학년</label>
+                    <select id="job" name="job" size="1">
+                        <option value="">선택하세요.</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+                    
+                    <br><br>
 
-  <!--시간표 -->
-  <div>
-    <table style="width:90%" id="tableId">
-      <caption>2022년도 1학기의 수강 시간표 입니다.</caption>
+                    <div class="box">
+                        <label for="job">전공</label>
+                        <select id="job" name="job" size="1">
+                            <option value="">선택하세요.</option>
+                            <option value="">글로벌경영학부</option>
+                            <option value="">영어학과</option>
+                            <option value="">일본어학과</option>
+                            <option value="">중국어학과</option>
+                            <option value="">국제통상학과</option>
+                            <option value="">컴퓨터공학부</option>
+                            <option value="">컴퓨터공학과</option>
+                            <option value="">소프트웨어학과</option>
+                            <option value="">게임학과</option>
+                            <option value="">정보보안학과</option>
+                            <option value="">영상애니메이션학과</option>
+                            <option value="">웹툰학과</option>
+                            <option value="">보건행정학과</option>
+                            <option value="">임상병리학과</option>
+                            <option value="">간호학과</option>
+                            <option value="">치위생학과</option>
+                            <option value="">방사선학과</option>
+                            <option value="">화장품 신소재학과</option>
+                            <option value="">식품영양학과</option>
+                            <option value="">체육학과</option>
+                            <option value="">방송영상학과</option>
+                        </select>
+                    </div> <br> <br>
+
+                    <div class="box">
+                        <label for="job">최대학점</label>
+                        <select id="job" name="job" size="1">
+                            <option value="">선택하세요.</option>
+                            <option value="19">19</option>
+                            <option value="21">21</option>
+                        </select>
+                    </div>
+
+                    <br><br>
+                </div>
+
+            <div id="contents">
+                <table style="width:1200px">
+                    <caption><h2>2022년도 1학기의 수강 시간표 입니다.</h2></caption>
+
 
       <tr class="colored">
         <th> </th>
@@ -169,22 +204,21 @@
         <th>금</th>
       </tr>
 
-      <% for(i=1; i< 10; i++) { %>
+      <!-- 교시 -->
+      <% for(i=1; i< 10; i++) { %>  
         <tr>
         <tr class="colored">
           <th>
             <%= i %>
           </th>
-          <% for(j=0; j< 5; j++) { %>
-            <script>
-              starttime[j][i] = 10 * j + i;
-              document.getElementById("date1").value = starttime[j][i];
-            </script>
-
-            <input type="hidden" id="date1" name="date1" value="">
-            <td onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"
-              onClick="run();">
+          <!-- 요일 -->
+          <% for(j=1; j< 6; j++) { %>
+            <form action="select.html">
+            <td onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'">
+              <input type="hidden" id="date1" name="date1" value="<%= 10*j+i %>">
+                <button type="submit"> 수강 신청 하기</button>
             </td>
+            </form>
             <% } %>
         </tr>
         <% } %>

@@ -26,7 +26,7 @@ app.get("/", function (req, res) {
 });
 
 //게시판 페이지
-app.get("/subjectlist.html", function (req, res) {
+app.get("/subjectlist", function (req, res) {
   var databaseUrl = "mongodb://localhost:27017/local";
   MongoClient.connect(databaseUrl, function (err, db) {
     if (err != null) {
@@ -47,7 +47,7 @@ app.get("/subjectlist.html", function (req, res) {
 }); 
 
 //수강신청 페이지
-app.get("/classselect.html", function (req, res) {
+app.get("/select.html", function (req, res) {
   var databaseUrl = "mongodb://localhost:27017/local";
   MongoClient.connect(databaseUrl, function (err, db) {
     if (err != null) {
@@ -60,12 +60,15 @@ app.get("/classselect.html", function (req, res) {
         .toArray(function (err, result) {
           if (err) throw err;
 
-          res.render("subjectlist.ejs", { posts: result });
+          res.render("select.ejs", { posts: result });
           console.log(result);
         });
     }
   });
 }); 
+app.post('/select.html',function(req, res){
+
+})
 
 
 app.listen(4000, () => console.log("Server is running on port 4000..."));
