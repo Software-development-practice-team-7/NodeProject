@@ -104,8 +104,29 @@
       height: 100%;
       overflow: auto;
     }
-
   </style>
+
+  <script>
+    var i, j;
+    var starttime = new Array;
+    //starttime[j][i] = 10 * j + i;
+    //document.getElementById("date1").value = starttime[j][i];
+
+    function run(sttime) {
+      //window.open("/classselect.html");
+      console.log(starttime[j][i]);
+    }
+
+    function popupOpen(){
+		var url= "/classselect.html";    //팝업창에 출력될 페이지 URL
+		var winWidth = 700;
+	    var winHeight = 600;
+	    var popupOption= "width="+winWidth+", height="+winHeight;    //팝업창 옵션(optoin)
+	    var myWindow = window.open(url,"TestName",popupOption);
+	    myWindow.document.write("<h1>"+myWindow.name+"</h1>");
+	}
+
+  </script>
 </head>
 
 <!-- 아래부터 상단 메뉴바 -->
@@ -135,9 +156,9 @@
   </div>
   <div style="clear: both;"></div>
 
-  <!-- 아래부터 테이블 -->
+  <!--시간표 -->
   <div>
-    <table style="width:90%">
+    <table style="width:90%" id="tableId">
       <caption>2022년도 1학기의 수강 시간표 입니다.</caption>
 
       <tr class="colored">
@@ -149,15 +170,22 @@
         <th>금</th>
       </tr>
 
-      <% for(var i=1; i< 10; i++) { %>
+      <% for(i=1; i< 10; i++) { %>
         <tr>
-
         <tr class="colored">
           <th>
             <%= i %>
           </th>
-          <% for(var j=0; j< 5; j++) { %>
-            <td onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"onClick="window.open('/classselect.html');"></td>
+          <% for(j=0; j< 5; j++) { %>
+            <script>
+              starttime[j][i] = 10 * j + i;
+              document.getElementById("date1").value = starttime[j][i];
+            </script>
+
+            <input type="hidden" id="date1" name="date1" value="">
+            <td onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"
+              onClick="window.open('/classselect.html');">
+            </td>
             <% } %>
         </tr>
         <% } %>
@@ -166,5 +194,6 @@
   </div>
 
 </body>
+
 
 </html>
