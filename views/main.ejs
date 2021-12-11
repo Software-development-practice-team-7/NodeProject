@@ -137,9 +137,9 @@
             <div id="aside">
                 <br><br><br>
                 <div class="box">
-                <form method="get" action="Select.html">
-                    <label for="job">학년</label>
-                    <select id="job" name="job" size="1">
+                <!--<form method="post" action="Select.html">-->
+                    <label for="grade">학년</label>
+                    <select id="grade" name="job" size="1">
                         <option value="">선택하세요.</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -151,8 +151,8 @@
                     <br><br>
 
                     <div class="box">
-                        <label for="job">전공</label>
-                        <select id="job" name="job" size="1">
+                        <label for="major">전공</label>
+                        <select id="major" name="major" size="1">
                             <option value="">선택하세요.</option>
                             <option value="">글로벌경영학부</option>
                             <option value="">영어학과</option>
@@ -179,8 +179,8 @@
                     </div> <br> <br>
 
                     <div class="box">
-                        <label for="job">최대학점</label>
-                        <select id="job" name="job" size="1">
+                        <label for="f_grade">최대학점</label>
+                        <select id="f_grade" name="f_grade" size="1">
                             <option value="">선택하세요.</option>
                             <option value="19">19</option>
                             <option value="21">21</option>
@@ -213,9 +213,9 @@
           </th>
           <!-- 요일 -->
           <% for(j=1; j< 6; j++) { %>
-            <form action="select.html">
+            <form action="/select.html" method="post">
             <td onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'">
-              <input type="hidden" id="date1" name="date1" value="<%= 10*j+i %>">
+              <input type="hidden" id="date1" name="date" value="<%= 10*j+i %>">
                 <button type="submit"> 수강 신청 하기</button>
             </td>
             </form>

@@ -26,7 +26,7 @@ app.get("/", function (req, res) {
 });
 
 //게시판 페이지
-app.get("/subjectlist", function (req, res) {
+app.get("/subjectlist.html", function (req, res) {
   var databaseUrl = "mongodb://localhost:27017/local";
   MongoClient.connect(databaseUrl, function (err, db) {
     if (err != null) {
@@ -46,8 +46,9 @@ app.get("/subjectlist", function (req, res) {
   });
 }); 
 
-//수강신청 페이지
-app.get("/select.html", function (req, res) {
+app.post('/select.html',function(req, res){
+  var date = req.body.date;
+  console.log(date);
   var databaseUrl = "mongodb://localhost:27017/local";
   MongoClient.connect(databaseUrl, function (err, db) {
     if (err != null) {
@@ -65,9 +66,6 @@ app.get("/select.html", function (req, res) {
         });
     }
   });
-}); 
-app.post('/select.html',function(req, res){
-
 })
 
 
