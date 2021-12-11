@@ -144,6 +144,7 @@
           <th>교수명</th>
           <th>과목분류</th>
           <th>학점</th>
+          <th>선택</th>
         </tr>
           <% for(var i = 0; i< posts.length; i++) { %>
             <tr  class="colored">
@@ -154,6 +155,13 @@
               <th><%= posts[i].P_name %></th>
               <th><%= posts[i].S_Div %></th>
               <th><%= posts[i].S_Credit %></th>
+              <th>
+                <input type="checkbox" value="1" onclick="NoMultiChk(this)">
+                <form method="post" action="selectlist.html">
+                  <input type="hidden" name="s_num" value="<%= posts[i].S_Num %>">
+                  <input type="hidden" name="c_num"value="<%= posts[i].C_Num %>">
+                </form>
+              </th>
           </tr>
           <% } %>  
       
@@ -162,5 +170,15 @@
   </div>
 
 </body>
+<script>
+  function NoMultiChk(chk) {
+    var obj = document.getElementsByName("box");
+    for (var i = 0; i < obj.length; i++) {
+      if (obj[i] != chk) {
+        obj[i].checked = false;
+      }
+    }
+  }
+</script>
 
 </html>
