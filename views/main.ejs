@@ -28,7 +28,7 @@
             height: 100%;
             background: #b8b9be;
             position: absolute;
-            
+
             float: left;
         }
 
@@ -104,7 +104,7 @@
         nav a#pull {
             display: none;
         }
-        
+
         /*선택박스 옵션*/
         .box {
             width: 150px;
@@ -127,7 +127,7 @@
                         <li><a href="/">시간표</a></li>
                         <li><a href="/subjectlist.html">전체수강조회</a></li>
                         <li><a href="">신청내역조회</a></li>
-                        <li><a href="">시간</a></li>
+                        <li><a href="https://time.navyism.com/?host=naver.com">시간</a></li>
                     </ul>
                     <a id="pull" href="#"></a>
                 </nav>
@@ -137,94 +137,98 @@
             <div id="aside">
                 <br><br><br>
                 <div class="box">
-                <!--<form method="post" action="Select.html">-->
-                    <label for="grade">학년</label>
-                    <select id="grade" name="job" size="1">
+                    <form method="post" action="/select.html">
+                        <label for="grade">학년</label>
+                        <select id="grade" name="grade" size="1">
+                            <option value="">선택하세요.</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </form>
+                </div>
+
+                <br><br>
+
+                <div class="box">
+                    <label for="major">전공</label>
+                    <select id="major" name="major" size="1">
                         <option value="">선택하세요.</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
+                        <option value="">글로벌경영학과</option>
+                        <option value="">영어학과</option>
+                        <option value="">일본어학과</option>
+                        <option value="">중국어학과</option>
+                        <option value="">국제통상학과</option>
+                        <option value="">컴퓨터공학부</option>
+                        <option value="컴퓨터공학과">컴퓨터공학과</option>
+                        <option value="">소프트웨어학과</option>
+                        <option value="">게임학과</option>
+                        <option value="">정보보안학과</option>
+                        <option value="">영상애니메이션학과</option>
+                        <option value="">웹툰학과</option>
+                        <option value="">보건행정학과</option>
+                        <option value="">임상병리학과</option>
+                        <option value="">간호학과</option>
+                        <option value="">치위생학과</option>
+                        <option value="">방사선학과</option>
+                        <option value="">화장품 신소재학과</option>
+                        <option value="">식품영양학과</option>
+                        <option value="">체육학과</option>
+                        <option value="">방송영상학과</option>
+                    </select>
+                </div> <br> <br>
+
+                <div class="box">
+                    <label for="f_grade">최대학점</label>
+                    <select id="f_grade" name="f_grade" size="1">
+                        <option value="">선택하세요.</option>
+                        <option value="19">19</option>
+                        <option value="21">21</option>
                     </select>
                 </div>
-                    
-                    <br><br>
 
-                    <div class="box">
-                        <label for="major">전공</label>
-                        <select id="major" name="major" size="1">
-                            <option value="">선택하세요.</option>
-                            <option value="">글로벌경영학부</option>
-                            <option value="">영어학과</option>
-                            <option value="">일본어학과</option>
-                            <option value="">중국어학과</option>
-                            <option value="">국제통상학과</option>
-                            <option value="">컴퓨터공학부</option>
-                            <option value="">컴퓨터공학과</option>
-                            <option value="">소프트웨어학과</option>
-                            <option value="">게임학과</option>
-                            <option value="">정보보안학과</option>
-                            <option value="">영상애니메이션학과</option>
-                            <option value="">웹툰학과</option>
-                            <option value="">보건행정학과</option>
-                            <option value="">임상병리학과</option>
-                            <option value="">간호학과</option>
-                            <option value="">치위생학과</option>
-                            <option value="">방사선학과</option>
-                            <option value="">화장품 신소재학과</option>
-                            <option value="">식품영양학과</option>
-                            <option value="">체육학과</option>
-                            <option value="">방송영상학과</option>
-                        </select>
-                    </div> <br> <br>
-
-                    <div class="box">
-                        <label for="f_grade">최대학점</label>
-                        <select id="f_grade" name="f_grade" size="1">
-                            <option value="">선택하세요.</option>
-                            <option value="19">19</option>
-                            <option value="21">21</option>
-                        </select>
-                    </div>
-
-                    <br><br>
-                </div>
+                <br><br>
+            </div>
 
             <div id="contents">
                 <table style="width:1200px">
-                    <caption><h2>2022년도 1학기의 수강 시간표 입니다.</h2></caption>
+                    <caption>
+                        <h2>2022년도 1학기의 수강 시간표 입니다.</h2>
+                    </caption>
 
 
-      <tr class="colored">
-        <th> </th>
-        <th>월</th>
-        <th>화</th>
-        <th>수</th>
-        <th>목</th>
-        <th>금</th>
-      </tr>
+                    <tr class="colored">
+                        <th> </th>
+                        <th>월</th>
+                        <th>화</th>
+                        <th>수</th>
+                        <th>목</th>
+                        <th>금</th>
+                    </tr>
 
-      <!-- 교시 -->
-      <% for(i=1; i< 10; i++) { %>  
-        <tr>
-        <tr class="colored">
-          <th>
-            <%= i %>
-          </th>
-          <!-- 요일 -->
-          <% for(j=1; j< 6; j++) { %>
-            <form action="/select.html" method="post">
-            <td onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'">
-              <input type="hidden" id="date1" name="date" value="<%= 10*j+i %>">
-                <button type="submit"> 수강 신청 하기</button>
-            </td>
-            </form>
-            <% } %>
-        </tr>
-        <% } %>
+                    <!-- 교시 -->
+                    <% for(i=1; i< 10; i++) { %>
+                        <tr>
+                        <tr class="colored">
+                            <th>
+                                <%= i %>
+                            </th>
+                            <!-- 요일 -->
+                            <% for(j=1; j< 6; j++) { %>
+                                <form action="/select.html" method="post">
+                                    <td onmouseover="this.style.background='#555'"
+                                        onmouseout="this.style.background='white'">
+                                        <input type="hidden" id="date1" name="date" value="<%= 10*j+i %>">
+                                        <button type="submit"> 수강 신청 하기</button>
+                                    </td>
+                                </form>
+                                <% } %>
+                        </tr>
+                        <% } %>
 
-    </table>
-  </div>
+                </table>
+            </div>
 
 </body>
 

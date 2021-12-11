@@ -47,8 +47,22 @@ app.get("/subjectlist.html", function (req, res) {
 }); 
 
 app.post('/select.html',function(req, res){
+  var day, time;
   var date = req.body.date;
-  console.log(date);
+  var grade = req.body.grade
+
+  if(date/10 < 2){
+    day = '월';
+  }else if(date/10 <3){
+    day = '화';
+  }else if(date/10 <4){
+    day = '수';
+  }else if(date/10 <5){
+    day = '목';
+  }else if(date/10 <6){
+    day = '금';
+  }
+  var time = date%10+"교시";
   var databaseUrl = "mongodb://localhost:27017/local";
   MongoClient.connect(databaseUrl, function (err, db) {
     if (err != null) {
@@ -57,10 +71,11 @@ app.post('/select.html',function(req, res){
       var subjects = db.db("SubjectDB");
       subjects
         .collection("item")
-        .find({})
+        .find({S_day: day, S_time: time})
         .toArray(function (err, result) {
           if (err) throw err;
 
+          console.log(day, time);
           res.render("select.ejs", { posts: result });
           console.log(result);
         });
