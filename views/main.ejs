@@ -112,9 +112,8 @@
     //starttime[j][i] = 10 * j + i;
     //document.getElementById("date1").value = starttime[j][i];
 
-    function run(sttime) {
-      //window.open("/classselect.html");
-      console.log(starttime[j][i]);
+    function run() {
+      window.open("/classselect.html","new", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=700, height=700, left=0, top=0");
     }
 
     function popupOpen(){
@@ -184,7 +183,7 @@
 
             <input type="hidden" id="date1" name="date1" value="">
             <td onmouseover="this.style.background='#555'" onmouseout="this.style.background='white'"
-              onClick="window.open('/classselect.html');">
+              onClick="run();">
             </td>
             <% } %>
         </tr>
