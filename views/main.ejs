@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>레이아웃 연습</title>
+    <title>수강신청도우미</title>
     <style>
         * {
             margin: 0;
@@ -14,54 +14,61 @@
             margin: 0;
         }
 
-        /*네이게이션*/
+        #wrap {
+            width: 1200px;
+            height: 0;
+            margin: 0 auto;
+        }
+
         #header {
+            border-bottom: 2px solid rgb(0, 0, 0);
             height: 100px;
             width: 100%;
             background-color: rgb(194, 3, 30);
-
         }
 
-        /*개인정보 선택*/
+        /*
+        #container{
+                height: 500px;
+                background: rgb(207, 181, 181);
+        }
         #aside {
-            width: 250px;
-            height: 100%;
-            background: #b8b9be;
-            position: absolute;
-
+            width: 300px;
+            height: 700px;
+            background: #D3D5F5;
             float: left;
         }
-
-        /*시간표들어가는 공간*/
+*/
         #contents {
-            width: 80%;
-            height: 70%;
-            margin-top: 2%;
-            float: right;
+            height: 500px;
+            background: linear-gradient(to bottom, rgba(194, 3, 30), pink);
+            /*#ff616183;*/
+            position: center;
+            clear: both;
         }
 
-        /*시간표 테이블*/
-        table,
-        th,
-        td {
-            border: 1px solid black;
-            border-collapse: collapse;
+        #footer-wrap {
+            display: block;
+            background: #31343d;
+            color: #fff;
+            font-size: 13px;
+            z-index: 400;
+        }
+
+        .div-wrap {
+            position: relative;
+            width: 100%;
             text-align: center;
+            margin: 0 auto;
         }
-
-        table {
-            margin-right: 40px;
-            margin-bottom: 40px;
+/*
+        #footer {
+            height: 180px;
+            background: #C8EFD4;
+            clear: both;
+            margin-bottom: 0 auto;
         }
-
-        td {
-            padding: 30px;
-        }
-
-        th {
-            text-align: center;
-        }
-
+*/
         li {
             position: relative;
             display: inline-block;
@@ -69,14 +76,13 @@
 
         li a {
             color: #fcfcfc;
-
             text-align: center;
-            padding: 14.5px 80px;
+            padding: 15px 80px;
             text-decoration: none;
         }
 
         nav {
-            font-size: 12pt;
+            font-size: 14pt;
             position: relative;
         }
 
@@ -105,7 +111,33 @@
             display: none;
         }
 
-        /*선택박스 옵션*/
+        table,
+        th,
+        td {
+            background-color: white;
+            border: 3px solid rgb(0, 0, 0);
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        table {
+            margin: auto;
+            width: 1200px;
+        }
+
+        td {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        th {
+            background-color: #b9b9b9;
+            text-align: center;
+            padding: 10px;
+            width: 10px;
+        }
+
         .box {
             width: 150px;
             padding: 30px;
@@ -113,9 +145,21 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
-            background: #52b1ce;
+            background: #ffffff;
         }
+
+        .mouseon:hover {
+            background-color: #b95a5a9f;
+        }
+        #button{
+            display: block;
+            width: 100%;
+            height: 45px;
+
+        }
+        
     </style>
+
 
 <body>
     <div>
@@ -126,75 +170,20 @@
                         <li><a href=""><img src="dsulogo.PNG" style="float:left; height: 100px;"></a></li>
                         <li><a href="/">시간표</a></li>
                         <li><a href="/subjectlist.html">전체수강조회</a></li>
-                        <li><a href="">신청내역조회</a></li>
+                        <li><a href="/selectlist.html">신청내역조회</a></li>
                         <li><a href="https://time.navyism.com/?host=naver.com">시간</a></li>
                     </ul>
                     <a id="pull" href="#"></a>
                 </nav>
             </div>
         </div>
-        <div>
-            <div id="aside">
-                <br><br><br>
-                <div class="box">
-                    <form method="post" action="/select.html">
-                        <label for="grade">학년</label>
-                        <select id="grade" name="grade" size="1">
-                            <option value="">선택하세요.</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
-                    </form>
-                </div>
-
-                <br><br>
-
-                <div class="box">
-                    <label for="major">전공</label>
-                    <select id="major" name="major" size="1">
-                        <option value="">선택하세요.</option>
-                        <option value="">글로벌경영학과</option>
-                        <option value="">영어학과</option>
-                        <option value="">일본어학과</option>
-                        <option value="">중국어학과</option>
-                        <option value="">국제통상학과</option>
-                        <option value="">컴퓨터공학부</option>
-                        <option value="컴퓨터공학과">컴퓨터공학과</option>
-                        <option value="">소프트웨어학과</option>
-                        <option value="">게임학과</option>
-                        <option value="">정보보안학과</option>
-                        <option value="">영상애니메이션학과</option>
-                        <option value="">웹툰학과</option>
-                        <option value="">보건행정학과</option>
-                        <option value="">임상병리학과</option>
-                        <option value="">간호학과</option>
-                        <option value="">치위생학과</option>
-                        <option value="">방사선학과</option>
-                        <option value="">화장품 신소재학과</option>
-                        <option value="">식품영양학과</option>
-                        <option value="">체육학과</option>
-                        <option value="">방송영상학과</option>
-                    </select>
-                </div> <br> <br>
-
-                <div class="box">
-                    <label for="f_grade">최대학점</label>
-                    <select id="f_grade" name="f_grade" size="1">
-                        <option value="">선택하세요.</option>
-                        <option value="19">19</option>
-                        <option value="21">21</option>
-                    </select>
-                </div>
-
-                <br><br>
             </div>
 
             <div id="contents">
                 <table style="width:1200px">
                     <caption>
-                        <h2>2022년도 1학기의 수강 시간표 입니다.</h2>
+
+                        <br><br>
                     </caption>
 
 
@@ -220,7 +209,7 @@
                                     <td onmouseover="this.style.background='#555'"
                                         onmouseout="this.style.background='white'">
                                         <input type="hidden" id="date1" name="date" value="<%= 10*j+i %>">
-                                        <button type="submit"> 수강 신청 하기</button>
+                                        <button id="button" type="submit"></button>
                                     </td>
                                 </form>
                                 <% } %>
@@ -229,8 +218,147 @@
 
                 </table>
             </div>
+        <div>
 
-</body>
+            <br><br><br>
+            <footer class="div-wrap footer-wrap" id="footer-wrap">
+                <div id="footer-top-wrap" class="div-wrap">
+                    <div id="footer-top" class="div-cont">
+                        <div class="ftoplink-wrap">
+    
+                            <div id="ftoplink" class="ftoplink">
+                                <ul>
+                                    <li class="first"><a href="?pCode=privacy" target="_self"><span>개인정보처리방침</span></a></li>
+                                    <li class=""><a href="http://uni.dongseo.ac.kr/chapel/" target="_blank"
+                                            title="새창열림"><span>교목실</span></a></li>
+                                    <li class=""><a href="http://uni.dongseo.ac.kr/iec/" target="_blank"
+                                            title="새창열림"><span>국제교류센터</span></a></li>
+                                    <li class=""><a
+                                            href="https://www.coursera.org/programs/dongseo-university-on-coursera-qvjqm"
+                                            target="_blank" title="새창열림"><span>Coursera</span></a></li>
+                                    <li class=""><a href="http://library.dongseo.ac.kr/Cheetah/DSU/Index/" target="_blank"
+                                            title="새창열림"
+                                            onclick="return dongseoSSOLoginLink('library',-1);"><span>민석도서관</span></a></li>
+                                    <li class=""><a
+                                            href="http://www.academyinfo.go.kr/popup/pubinfo1690/list.do?schlId=0000103"
+                                            target="_blank" title="새창열림"><span>대학정보공시</span></a></li>
+                                    <li class=""><a href="?pCode=MN2000207" target="_self"><span>예결산공고</span></a></li>
+                                    <li class=""><a href="?pCode=MN2000358" target="_self"><span>학칙관련 규정</span></a></li>
+                                    <li class=""><a href="?pCode=uwelfmall" target="_blank"
+                                            title="새창열림"><span>대학생복지몰</span></a></li>
+                                    <li class=""><a
+                                            href="http://www.dongseo.ac.kr/kr/index.php?pCode=MN2000205&amp;mode=view&amp;idx=68504"
+                                            target="_self"><span>자체평가 종합보고서</span></a></li>
+                                    <li class=""><a href="?pCode=noemail" target="_self"><span>이메일무단수집거부</span></a></li>
+                                    <li class=""><a href="?pCode=MN2000206" target="_self"><span>영상정보처리기기 규정</span></a></li>
+                                    <li class=""><a
+                                            href="https://uni.webminwon.com/servlet/WMINDEX?COMMAND=ACTIVEX&amp;GIWANNO=022606"
+                                            target="_blank" title="새창열림"><span>인터넷증명발급(학부)</span></a></li>
+                                    <li class=""><a
+                                            href="https://uni.webminwon.com/servlet/WMINDEX?COMMAND=ACTIVEX&amp;GIWANNO=022614"
+                                            target="_blank" title="새창열림"><span>인터넷증명발급(대학원)</span></a></li>
+                                    <li class=""><a href="http://www.dongseo.ac.kr/kr/index.php?pCode=application"
+                                            target="_blank" title="새창열림"><span>모바일학생증발급</span></a></li>
+                                    <li class=""><a href="http://isic.co.kr/dongseo/dongseoIndex.jsp" target="_blank"
+                                            title="새창열림"><span>국제학생증발급</span></a></li>
+                                    <li class=""><a href="?pCode=itservice01" target="_blank"
+                                            title="새창열림"><span>IT서비스</span></a></li>
+                                    <li class=""><a href="?pCode=MN2000271" target="_blank" title="새창열림"><span>대관시설
+                                                이용안내</span></a></li>
+                                    <li class=""><a href="http://uniarlimi.kasfo.or.kr/main/" target="_blank"
+                                            title="새창열림"><span>대학재정알리미</span></a></li>
+                                    <li class=""><a href="https://support.kasfo.or.kr/" target="_blank"
+                                            title="새창열림"><span>대학재정회계센터</span></a></li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+    
+                        
+                        <!-- 관련사이트 -->
+                        <div class="fsitelink">
+    
+                <div id="footer" class="div-cont">
+                    <div id="fcopyright" class="fcopyright">
+                        <img src="/_Template/Footer/footer-full/_Img/flogo.png" alt="" class="flogo" org_width="131"
+                            org_height="96" isinit="true">
+                        <div class="pinfo">
+                            <span class="addr">(47011) 부산광역시 사상구 주례로 47 </span>
+                            <span class="ptel">TEL : 051-313-2001~4</span>
+                            <span class="ptel2">FAX : 051-313-1046</span>
+                        </div>
+                        <p class="pcopyright">Copyrightⓒ 2017 동서대학교. All rights reserved.</p>
+                    </div>
+    
+                    <div class="logo-sec">
+                        <a href="http://www.dongseo.ac.kr/kr/index.php?pCode=uisp" class="uisp"><span
+                                class="blind">대학혁신지원사업</span></a>
+                        
+                        <a href="http://www.dongseo.ac.kr/kr/index.php?pCode=linc" class="linc"><span
+                                class="blind">LINC+사업단</span></a>
+                        
+                    </div>
+    
+                </div>
+    
+    
+    
+                <script>
+                    if ($(window).width() <= 420) {
+                        var ftoplink = $('#ftoplink ul');
+                        ftoplink.owlCarousel({
+                            items: 2,
+                            loop: true,
+                            nav: true,
+                            dots: false,
+                            margin: 10,
+                            autoplay: false,
+                            autoplayTimeout: 3000,
+                            autoplayHoverPause: false, //재생/정지버튼 넣을때는 이 옵션 false로, 마우스 인/아웃 이벤트 충돌로 재생/정지 버튼 액션 꼬일수 있음
+                            responsive: {
+                                640: {
+                                    items: 3
+                                },
+                                0: {
+                                    items: 2
+                                }
+                            }
+                        });
+                    }
+    
+    
+                    $(function () {
+                        // Fakes the loading setting a timeout
+                        setTimeout(function () {
+                            $('body').addClass('loaded');
+                        }, 400);
+    
+                        $(window).scroll(function () {
+                            if ($(this).scrollTop() > $(window).height() * 0.2) {
+                                $('.topBt').addClass('over');
+                            } else {
+                                $('.topBt').removeClass('over');
+                            }
+                        });
+    
+                        //Click event to scroll to top
+                        $('.topBt').click(function () {
+                            $('html, body').animate({ scrollTop: 0 }, 300);
+                            return false;
+                        });
+    
+    
+                    });
+    
+                </script>
+            </footer>
+    
+    
+    
+        </div>
+    
+    </body>
 
-
-</html>
+    </head>
+    
+    </html>

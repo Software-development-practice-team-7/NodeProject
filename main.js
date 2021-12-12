@@ -40,29 +40,28 @@ app.get("/subjectlist.html", function (req, res) {
           if (err) throw err;
 
           res.render("subjectlist.ejs", { posts: result });
-          console.log(result);
         });
     }
   });
-}); 
+});
 
 //수강 신청 페이지
-app.post('/select.html',function(req, res){
+app.post("/select.html", function (req, res) {
   var day, time;
   var date = req.body.date;
 
-  if(date/10 < 2){
-    day = '월';
-  }else if(date/10 <3){
-    day = '화';
-  }else if(date/10 <4){
-    day = '수';
-  }else if(date/10 <5){
-    day = '목';
-  }else if(date/10 <6){
-    day = '금';
+  if (date / 10 < 2) {
+    day = "월";
+  } else if (date / 10 < 3) {
+    day = "화";
+  } else if (date / 10 < 4) {
+    day = "수";
+  } else if (date / 10 < 5) {
+    day = "목";
+  } else if (date / 10 < 6) {
+    day = "금";
   }
-  var time = date%10+"교시";
+  var time = (date % 10) + "교시";
   var databaseUrl = "mongodb://localhost:27017/local";
   MongoClient.connect(databaseUrl, function (err, db) {
     if (err != null) {
@@ -71,40 +70,84 @@ app.post('/select.html',function(req, res){
       var subjects = db.db("SubjectDB");
       subjects
         .collection("item")
-        .find({S_day: day, S_time: time})
+        .find({ S_day: day, S_time: time })
         .toArray(function (err, result) {
           if (err) throw err;
 
           console.log(day, time);
           res.render("select.ejs", { posts: result });
-          console.log(result);
         });
     }
   });
-})
+});
 
-//수강 완료 페이지
-app.post('/selectkist.html',function(req, res){
-  var s_num = req.body.s_num;
-  var c_num = req.body.c_num;
-
+app.get("/selectlist.html", function (req, res) {
   var databaseUrl = "mongodb://localhost:27017/local";
   MongoClient.connect(databaseUrl, function (err, db) {
     if (err != null) {
       res.send("에러 내용:" + err);
     } else {
-      var subjects = db.db("SubjectDB");
-      subjects
+      var selectlist = db.db("SelectlistDB");
+      selectlist
         .collection("item")
-        .find({S_Num: s_num, C_Num:c_num})
+        .find({})
         .toArray(function (err, result) {
           if (err) throw err;
-          res.render("select.ejs", { posts: result });
-          console.log(result);
+
+          res.render("selectlist.ejs", { posts: result });
         });
     }
   });
-})
+});
+
+//수강 완료 페이지
+app.post("/selectlist.html", function (req, res) {
+  var databaseUrl = "mongodb://localhost:27017/local";
+  var name = req.body.Name;
+  var p_name = req.body.P_name;
+  var s_div = req.body.S_Div;
+  var s_credit = req.body.S_Credit;
+  var samename = 0;
+
+  var selectclass = {
+    Name: name,
+    P_Name: p_name,
+    S_Div: s_div,
+    S_Credit: s_credit,
+  };
+  console.log("selectcalss : " + selectclass.Name);
+
+  MongoClient.connect(databaseUrl, function (err, db) {
+    if (err != null) {
+      res.send("에러 내용:" + err);
+    } else {
+      var selectlist = db.db("SelectlistDB");
+
+      selectlist
+        .collection("item")
+        .find({ Name: name })
+        .toArray(function (err, result) {
+          if (err) throw err;      
+          console.log(result);
+          if(result.length == 0){
+            selectlist.collection("item").insertOne(selectclass);
+            console.log("db추가 완료");
+
+        selectlist
+          .collection("item")
+          .find({})
+          .toArray(function (err, result) {
+            if (err) throw err;
+
+            res.render("selectlist.ejs", { posts: result });
+          });
+          }else{
+            console.log("중복");
+          }
+        });
+    }
+  });
+});
 
 app.listen(4000, () => console.log("Server is running on port 4000..."));
 //connectDB();
@@ -116,7 +159,6 @@ function connectDB() {
     if (err) throw err;
 
     console.log("데이터베이스에 연결되었습니다. :" + databaseUrl);
-    
 
     db.close();
 

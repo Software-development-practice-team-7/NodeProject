@@ -142,6 +142,7 @@
           <th>교수명</th>
           <th>과목분류</th>
           <th>학점</th>
+          <th>취소</th>
         </tr>
           <% for(var i = 0; i< posts.length; i++) { %>
             <tr  class="colored">
@@ -155,6 +156,41 @@
       
       
   </table>
+
+  <table style="width:1200px">
+    <caption>
+        <h2>2022년도 1학기의 수강 시간표 입니다.</h2>
+    </caption>
+
+
+    <tr class="colored">
+        <th> </th>
+        <th>월</th>
+        <th>화</th>
+        <th>수</th>
+        <th>목</th>
+        <th>금</th>
+    </tr>
+
+    <!-- 교시 -->
+    <% for(i=1; i< 10; i++) { %>
+        <tr>
+        <tr class="colored">
+            <th>
+                <%= i %>
+            </th>
+            <!-- 요일 -->
+            <% for(j=1; j< 6; j++) { %>
+                <form action="/select.html" method="post">
+                    <td onmouseover="this.style.background='#555'"
+                        onmouseout="this.style.background='white'">
+                    </td>
+                </form>
+                <% } %>
+        </tr>
+        <% } %>
+
+</table>
   </div>
 
 </body>
