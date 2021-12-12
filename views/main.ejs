@@ -40,37 +40,42 @@
         }
 */
         #contents {
-            height: 500px;
+            height: 650px;
             background: linear-gradient(to bottom, rgba(194, 3, 30), pink);
             /*#ff616183;*/
             position: center;
             clear: both;
+            
         }
 
         #footer-wrap {
             display: block;
             background: #31343d;
             color: #fff;
-            font-size: 13px;
-            z-index: 400;
+            
+            /*font-size: 13px;
+            z-index: 400;*/
         }
 
         .div-wrap {
+            height: 260px;
             position: relative;
             width: 100%;
             text-align: center;
             margin: 0 auto;
         }
-/*
+
         #footer {
-            height: 180px;
-            background: #C8EFD4;
+            background: #31343d;
             clear: both;
             margin-bottom: 0 auto;
+            width: 100%;
+            position: absolute;
+            
         }
-*/
+
         li {
-            position: relative;
+            /*position: relative;*/
             display: inline-block;
         }
 
@@ -157,6 +162,10 @@
             height: 45px;
 
         }
+        .mouseon2:hover{
+            background:#555 ;
+        }
+
         
     </style>
 
@@ -168,10 +177,10 @@
                 <nav class="clearfix">
                     <ul class="clearfix">
                         <li><a href=""><img src="dsulogo.PNG" style="float:left; height: 100px;"></a></li>
-                        <li><a href="/">시간표</a></li>
-                        <li><a href="/subjectlist.html">전체수강조회</a></li>
-                        <li><a href="/selectlist.html">신청내역조회</a></li>
-                        <li><a href="https://time.navyism.com/?host=naver.com">시간</a></li>
+                        <li class="mouseon"><a href="/">시간표</a></li>
+                        <li class="mouseon"><a href="/subjectlist.html">전체수강조회</a></li>
+                        <li class="mouseon"><a href="/selectlist.html">신청내역조회</a></li>
+                        <li class="mouseon"><a href="https://time.navyism.com/?host=naver.com">시간</a></li>
                     </ul>
                     <a id="pull" href="#"></a>
                 </nav>
@@ -196,7 +205,6 @@
                         <th>금</th>
                     </tr>
 
-                    <!-- 교시 -->
                     <% for(i=1; i< 10; i++) { %>
                         <tr>
                         <tr class="colored">
@@ -206,21 +214,111 @@
                             <!-- 요일 -->
                             <% for(j=1; j< 6; j++) { %>
                                 <form action="/select.html" method="post">
-                                    <td onmouseover="this.style.background='#555'"
-                                        onmouseout="this.style.background='white'">
-                                        <input type="hidden" id="date1" name="date" value="<%= 10*j+i %>">
-                                        <button id="button" type="submit"></button>
+                                    <td class="mouseon2">
+                                        <% for(x = 0; x< posts.length; x++) { %>
+                                            <% if(posts[x].S_day1 == j && posts[x].S_time1 == i) { %>
+                                                <input type="hidden" name="date" value="<%= 10*j+i %>">
+                                                <button id="button" type="submit">
+                                                    <%= post[x].Name %>
+                                                </button>
+                                            <% } %>
+                                        <% } %>
                                     </td>
                                 </form>
-                                <% } %>
+                            <% } %>
                         </tr>
-                        <% } %>
+                    <% } %>
+
+
+                    <!-- 교시 
+                    <tr class="colored">
+                        <th>1교시</th>
+                        
+                        <td class="mouseon2">
+                            <form action="/select.html" method="post">
+                            <input type="hidden" name="date" value="11">
+                            <button id="button" type="submit">
+                                <% for(var i = 0; i< posts.length; i++) { %>
+                                    <% if(posts[i].S_day1 == )
+                            </button>
+                            </form>
+                        </td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+
+                    </tr>
+                    <tr class="colored">
+                        <th>2교시</th>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                    </tr>
+                    <tr class="colored">
+                        <th>3교시</th>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                    </tr>
+                    <tr class="colored">
+                        <th>4교시</th>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                    </tr>
+                    <tr class="colored">
+                        <th>5교시</th>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                    </tr>
+                    <tr class="colored">
+                        <th>6교시</th>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                    </tr>
+                    <tr class="colored">
+                        <th>7교시</th>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                    </tr>
+                    <tr class="colored">
+                        <th>8교시</th>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                    </tr>
+                    <tr class="colored">
+                        <th>9교시</th>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                        <td class="mouseon2"><button id="button" type="submit"></button></td>
+                    </tr>-->
+
 
                 </table>
             </div>
         <div>
-
-            <br><br><br>
+            <footer>
             <footer class="div-wrap footer-wrap" id="footer-wrap">
                 <div id="footer-top-wrap" class="div-wrap">
                     <div id="footer-top" class="div-cont">
@@ -228,46 +326,29 @@
     
                             <div id="ftoplink" class="ftoplink">
                                 <ul>
-                                    <li class="first"><a href="?pCode=privacy" target="_self"><span>개인정보처리방침</span></a></li>
-                                    <li class=""><a href="http://uni.dongseo.ac.kr/chapel/" target="_blank"
+                                    <li style="padding: 15px;"><a href="http://uni.dongseo.ac.kr/chapel/" target="_blank"
                                             title="새창열림"><span>교목실</span></a></li>
-                                    <li class=""><a href="http://uni.dongseo.ac.kr/iec/" target="_blank"
+                                    <li style="padding: 15px ;"><a href="http://uni.dongseo.ac.kr/iec/" target="_blank"
                                             title="새창열림"><span>국제교류센터</span></a></li>
-                                    <li class=""><a
-                                            href="https://www.coursera.org/programs/dongseo-university-on-coursera-qvjqm"
+                                    <li style="padding: 15px;"><a href="https://www.coursera.org/programs/dongseo-university-on-coursera-qvjqm"
                                             target="_blank" title="새창열림"><span>Coursera</span></a></li>
-                                    <li class=""><a href="http://library.dongseo.ac.kr/Cheetah/DSU/Index/" target="_blank"
-                                            title="새창열림"
-                                            onclick="return dongseoSSOLoginLink('library',-1);"><span>민석도서관</span></a></li>
-                                    <li class=""><a
-                                            href="http://www.academyinfo.go.kr/popup/pubinfo1690/list.do?schlId=0000103"
-                                            target="_blank" title="새창열림"><span>대학정보공시</span></a></li>
-                                    <li class=""><a href="?pCode=MN2000207" target="_self"><span>예결산공고</span></a></li>
-                                    <li class=""><a href="?pCode=MN2000358" target="_self"><span>학칙관련 규정</span></a></li>
-                                    <li class=""><a href="?pCode=uwelfmall" target="_blank"
-                                            title="새창열림"><span>대학생복지몰</span></a></li>
-                                    <li class=""><a
-                                            href="http://www.dongseo.ac.kr/kr/index.php?pCode=MN2000205&amp;mode=view&amp;idx=68504"
-                                            target="_self"><span>자체평가 종합보고서</span></a></li>
-                                    <li class=""><a href="?pCode=noemail" target="_self"><span>이메일무단수집거부</span></a></li>
-                                    <li class=""><a href="?pCode=MN2000206" target="_self"><span>영상정보처리기기 규정</span></a></li>
-                                    <li class=""><a
-                                            href="https://uni.webminwon.com/servlet/WMINDEX?COMMAND=ACTIVEX&amp;GIWANNO=022606"
-                                            target="_blank" title="새창열림"><span>인터넷증명발급(학부)</span></a></li>
-                                    <li class=""><a
-                                            href="https://uni.webminwon.com/servlet/WMINDEX?COMMAND=ACTIVEX&amp;GIWANNO=022614"
-                                            target="_blank" title="새창열림"><span>인터넷증명발급(대학원)</span></a></li>
-                                    <li class=""><a href="http://www.dongseo.ac.kr/kr/index.php?pCode=application"
+                                    <li style="padding: 15px ;"><a href="http://library.dongseo.ac.kr/Cheetah/DSU/Index/" target="_blank"
+                                            title="새창열림" onclick="return dongseoSSOLoginLink('library',-1);"><span>민석도서관</span></a></li>
+                                            <br>
+                                    <li style="padding: 15px ;"><a href="?pCode=MN2000358" target="_self"><span>학칙관련 규정</span></a></li>
+                                    <li style="padding: 15px ;"><a href="?pCode=uwelfmall" target="_blank" title="새창열림"><span>대학생복지몰</span></a></li>
+                                    <li style="padding: 15px ;"><a href="http://www.dongseo.ac.kr/kr/index.php?pCode=application"
                                             target="_blank" title="새창열림"><span>모바일학생증발급</span></a></li>
-                                    <li class=""><a href="http://isic.co.kr/dongseo/dongseoIndex.jsp" target="_blank"
-                                            title="새창열림"><span>국제학생증발급</span></a></li>
-                                    <li class=""><a href="?pCode=itservice01" target="_blank"
+                                    <li style="padding: 15px ;"><a href="http://isic.co.kr/dongseo/dongseoIndex.jsp" target="_blank"
+                                            title="새창열림"><span>국제학생증발급</span></a></li><br>
+
+                                    <li style="padding: 15px ;"><a href="?pCode=itservice01" target="_blank"
                                             title="새창열림"><span>IT서비스</span></a></li>
-                                    <li class=""><a href="?pCode=MN2000271" target="_blank" title="새창열림"><span>대관시설
+                                    <li style="padding: 15px ;"><a href="?pCode=MN2000271" target="_blank" title="새창열림"><span>대관시설
                                                 이용안내</span></a></li>
-                                    <li class=""><a href="http://uniarlimi.kasfo.or.kr/main/" target="_blank"
+                                    <li style="padding: 15px;"><a href="http://uniarlimi.kasfo.or.kr/main/" target="_blank"
                                             title="새창열림"><span>대학재정알리미</span></a></li>
-                                    <li class=""><a href="https://support.kasfo.or.kr/" target="_blank"
+                                    <li style="padding: 15px;"><a href="https://support.kasfo.or.kr/" target="_blank"
                                             title="새창열림"><span>대학재정회계센터</span></a></li>
                                 </ul>
                             </div>
@@ -283,21 +364,11 @@
                         <img src="/_Template/Footer/footer-full/_Img/flogo.png" alt="" class="flogo" org_width="131"
                             org_height="96" isinit="true">
                         <div class="pinfo">
-                            <span class="addr">(47011) 부산광역시 사상구 주례로 47 </span>
-                            <span class="ptel">TEL : 051-313-2001~4</span>
-                            <span class="ptel2">FAX : 051-313-1046</span>
+                            <span class="addr">부산광역시 사상구 주례로 47 컴퓨터공학부 학과사무실</span>
+                            <span class="ptel">TEL : 051-320-1740~4</span>
+                            <span class="ptel2"></span>
+
                         </div>
-                        <p class="pcopyright">Copyrightⓒ 2017 동서대학교. All rights reserved.</p>
-                    </div>
-    
-                    <div class="logo-sec">
-                        <a href="http://www.dongseo.ac.kr/kr/index.php?pCode=uisp" class="uisp"><span
-                                class="blind">대학혁신지원사업</span></a>
-                        
-                        <a href="http://www.dongseo.ac.kr/kr/index.php?pCode=linc" class="linc"><span
-                                class="blind">LINC+사업단</span></a>
-                        
-                    </div>
     
                 </div>
     
@@ -351,7 +422,9 @@
                     });
     
                 </script>
+                
             </footer>
+        </footer>
     
     
     

@@ -22,7 +22,22 @@ app.use(express.static("views"));
 
 //메인 페이지
 app.get("/", function (req, res) {
-  res.render("main.ejs");
+  var databaseUrl = "mongodb://localhost:27017/local";
+  MongoClient.connect(databaseUrl, function (err, db) {
+    if (err != null) {
+      res.send("에러 내용:" + err);
+    } else {
+      var selectlist = db.db("SelectlistDB");
+      selectlist
+        .collection("item")
+        .find({})
+        .toArray(function (err, result) {
+          if (err) throw err;
+
+          res.render("main.ejs", { posts: result });
+        });
+    }
+  });
 });
 
 //게시판 페이지
@@ -103,6 +118,8 @@ app.get("/selectlist.html", function (req, res) {
 //수강 완료 페이지
 app.post("/selectlist.html", function (req, res) {
   var databaseUrl = "mongodb://localhost:27017/local";
+  var s_time = req.body.S_time;
+  var s_day = req.body.S_day;
   var name = req.body.Name;
   var p_name = req.body.P_name;
   var s_div = req.body.S_Div;
@@ -110,6 +127,8 @@ app.post("/selectlist.html", function (req, res) {
   var samename = 0;
 
   var selectclass = {
+    S_time: s_time,
+    S_day: s_day,
     Name: name,
     P_Name: p_name,
     S_Div: s_div,
@@ -125,24 +144,25 @@ app.post("/selectlist.html", function (req, res) {
 
       selectlist
         .collection("item")
-        .find({ Name: name })
+        .find({$or: [{ Name: name }, {S_day:s_day}, {S_time: s_time} ]})
         .toArray(function (err, result) {
-          if (err) throw err;      
+          if (err) throw err;
           console.log(result);
-          if(result.length == 0){
+
+          if (result.length == 0) {
             selectlist.collection("item").insertOne(selectclass);
             console.log("db추가 완료");
 
-        selectlist
-          .collection("item")
-          .find({})
-          .toArray(function (err, result) {
-            if (err) throw err;
+            selectlist
+              .collection("item")
+              .find({})
+              .toArray(function (err, result) {
+                if (err) throw err;
 
-            res.render("selectlist.ejs", { posts: result });
-          });
-          }else{
-            console.log("중복");
+                res.render("selectlist.ejs", { posts: result });
+              });
+          } else {
+            console.log("중복된 수업혹은 중복된 시간입니다.");
           }
         });
     }

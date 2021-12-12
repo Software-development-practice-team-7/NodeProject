@@ -139,6 +139,8 @@
       <tr>
         <th> 번호</th>
           <th>수업 번호</th>
+          <th>요일</th>
+          <th>시간</th>
           <th>분반</th>
           <th>교과명</th>
           <th>교수명</th>
@@ -149,6 +151,8 @@
           <% for(var i = 0; i< posts.length; i++) { %>
             <tr  class="colored">
               <th><%= i+1 %></th>
+              <th><%= posts[i].S_day %></th>
+              <th><%= posts[i].S_time %></th>
               <th><%= posts[i].S_Num %></th>
               <th><%= posts[i].C_Num %></th>
               <th><%= posts[i].name %></th>
@@ -157,6 +161,8 @@
               <th><%= posts[i].S_Credit %></th>
               <th>
                 <form method="post" action="selectlist.html"> 
+                  <input type="hidden" name="S_day" value="<%= posts[i].S_day %>">
+                  <input type="hidden" name="S_time"value="<%= posts[i].S_time %>">
                   <input type="hidden" name="Name" value="<%= posts[i].name %>">
                   <input type="hidden" name="P_name"value="<%= posts[i].P_name %>">
                   <input type="hidden" name="S_Div" value="<%= posts[i].S_Div %>">
