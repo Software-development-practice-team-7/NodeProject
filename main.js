@@ -124,7 +124,8 @@ app.post("/selectlist.html", function (req, res) {
   var p_name = req.body.P_name;
   var s_div = req.body.S_Div;
   var s_credit = req.body.S_Credit;
-  var samename = 0;
+  var s_time1 = req.body.S_time1;
+  var s_day1 = req.body.S_day1;
 
   var selectclass = {
     S_time: s_time,
@@ -133,6 +134,8 @@ app.post("/selectlist.html", function (req, res) {
     P_Name: p_name,
     S_Div: s_div,
     S_Credit: s_credit,
+    S_time1: s_time1,
+    S_day1: s_day1
   };
   console.log("selectcalss : " + selectclass.Name);
 

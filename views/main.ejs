@@ -45,14 +45,14 @@
             /*#ff616183;*/
             position: center;
             clear: both;
-            
+
         }
 
         #footer-wrap {
             display: block;
             background: #31343d;
             color: #fff;
-            
+
             /*font-size: 13px;
             z-index: 400;*/
         }
@@ -71,7 +71,7 @@
             margin-bottom: 0 auto;
             width: 100%;
             position: absolute;
-            
+
         }
 
         li {
@@ -156,17 +156,17 @@
         .mouseon:hover {
             background-color: #b95a5a9f;
         }
-        #button{
+
+        #button {
             display: block;
             width: 100%;
             height: 45px;
 
         }
-        .mouseon2:hover{
-            background:#555 ;
-        }
 
-        
+        .mouseon2:hover {
+            background: #555;
+        }
     </style>
 
 
@@ -186,252 +186,181 @@
                 </nav>
             </div>
         </div>
-            </div>
+    </div>
 
-            <div id="contents">
-                <table style="width:1200px">
-                    <caption>
+    <div id="contents">
+        <table style="width:1200px">
+            <caption>
 
-                        <br><br>
-                    </caption>
+                <br><br>
+            </caption>
 
 
-                    <tr class="colored">
-                        <th> </th>
-                        <th>월</th>
-                        <th>화</th>
-                        <th>수</th>
-                        <th>목</th>
-                        <th>금</th>
-                    </tr>
+            <tr class="colored">
+                <th> </th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+            </tr>
 
-                    <% for(i=1; i< 10; i++) { %>
-                        <tr>
-                        <tr class="colored">
-                            <th>
-                                <%= i %>
-                            </th>
-                            <!-- 요일 -->
-                            <% for(j=1; j< 6; j++) { %>
-                                <form action="/select.html" method="post">
-                                    <td class="mouseon2">
-                                        <% for(x = 0; x< posts.length; x++) { %>
-                                            <% if(posts[x].S_day1 == j && posts[x].S_time1 == i) { %>
-                                                <input type="hidden" name="date" value="<%= 10*j+i %>">
-                                                <button id="button" type="submit">
-                                                    <%= post[x].Name %>
-                                                </button>
+            <% for(i=1; i< 10; i++) { %>
+                <tr>
+                <tr class="colored">
+                    <th>
+                        <%= i %>
+                    </th>
+                    <!-- 요일 -->
+                    <% for(j=1; j< 6; j++) { %>
+                        <form action="/select.html" method="post">
+                            <td class="mouseon2">
+                                <input type="hidden" name="date" value="<%= 10*j+i %>">
+                                <button id="button" type="submit">
+                                    <% for(var x=0; x< posts.length; x++) { %>
+                                        <% if(posts[x].S_day1==j) { %>
+                                            <% for( var y=0; y < posts[x].S_time.length; y++) { %>
+                                                <% if(posts[x].S_time1[y] == i) { %>
+                                                    <% console.log("성공") %>
+                                                    <%= posts[x].Name %>
+                                                <% } %>
                                             <% } %>
                                         <% } %>
-                                    </td>
-                                </form>
-                            <% } %>
-                        </tr>
-                    <% } %>
+                                    <% } %>
+                                </button>
+
+                            </td>
+                        </form>
+                        <% } %>
+                </tr>
+                <% } %>
 
 
-                    <!-- 교시 
-                    <tr class="colored">
-                        <th>1교시</th>
-                        
-                        <td class="mouseon2">
-                            <form action="/select.html" method="post">
-                            <input type="hidden" name="date" value="11">
-                            <button id="button" type="submit">
-                                <% for(var i = 0; i< posts.length; i++) { %>
-                                    <% if(posts[i].S_day1 == )
-                            </button>
-                            </form>
-                        </td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-
-                    </tr>
-                    <tr class="colored">
-                        <th>2교시</th>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                    </tr>
-                    <tr class="colored">
-                        <th>3교시</th>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                    </tr>
-                    <tr class="colored">
-                        <th>4교시</th>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                    </tr>
-                    <tr class="colored">
-                        <th>5교시</th>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                    </tr>
-                    <tr class="colored">
-                        <th>6교시</th>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                    </tr>
-                    <tr class="colored">
-                        <th>7교시</th>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                    </tr>
-                    <tr class="colored">
-                        <th>8교시</th>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                    </tr>
-                    <tr class="colored">
-                        <th>9교시</th>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                        <td class="mouseon2"><button id="button" type="submit"></button></td>
-                    </tr>-->
-
-
-                </table>
-            </div>
-        <div>
-            <footer>
+        </table>
+    </div>
+    <div>
+        <footer>
             <footer class="div-wrap footer-wrap" id="footer-wrap">
                 <div id="footer-top-wrap" class="div-wrap">
                     <div id="footer-top" class="div-cont">
                         <div class="ftoplink-wrap">
-    
+
                             <div id="ftoplink" class="ftoplink">
                                 <ul>
-                                    <li style="padding: 15px;"><a href="http://uni.dongseo.ac.kr/chapel/" target="_blank"
-                                            title="새창열림"><span>교목실</span></a></li>
+                                    <li style="padding: 15px;"><a href="http://uni.dongseo.ac.kr/chapel/"
+                                            target="_blank" title="새창열림"><span>교목실</span></a></li>
                                     <li style="padding: 15px ;"><a href="http://uni.dongseo.ac.kr/iec/" target="_blank"
                                             title="새창열림"><span>국제교류센터</span></a></li>
-                                    <li style="padding: 15px;"><a href="https://www.coursera.org/programs/dongseo-university-on-coursera-qvjqm"
+                                    <li style="padding: 15px;"><a
+                                            href="https://www.coursera.org/programs/dongseo-university-on-coursera-qvjqm"
                                             target="_blank" title="새창열림"><span>Coursera</span></a></li>
-                                    <li style="padding: 15px ;"><a href="http://library.dongseo.ac.kr/Cheetah/DSU/Index/" target="_blank"
-                                            title="새창열림" onclick="return dongseoSSOLoginLink('library',-1);"><span>민석도서관</span></a></li>
-                                            <br>
-                                    <li style="padding: 15px ;"><a href="?pCode=MN2000358" target="_self"><span>학칙관련 규정</span></a></li>
-                                    <li style="padding: 15px ;"><a href="?pCode=uwelfmall" target="_blank" title="새창열림"><span>대학생복지몰</span></a></li>
-                                    <li style="padding: 15px ;"><a href="http://www.dongseo.ac.kr/kr/index.php?pCode=application"
+                                    <li style="padding: 15px ;"><a
+                                            href="http://library.dongseo.ac.kr/Cheetah/DSU/Index/" target="_blank"
+                                            title="새창열림"
+                                            onclick="return dongseoSSOLoginLink('library',-1);"><span>민석도서관</span></a>
+                                    </li>
+                                    <br>
+                                    <li style="padding: 15px ;"><a href="?pCode=MN2000358" target="_self"><span>학칙관련
+                                                규정</span></a></li>
+                                    <li style="padding: 15px ;"><a href="?pCode=uwelfmall" target="_blank"
+                                            title="새창열림"><span>대학생복지몰</span></a></li>
+                                    <li style="padding: 15px ;"><a
+                                            href="http://www.dongseo.ac.kr/kr/index.php?pCode=application"
                                             target="_blank" title="새창열림"><span>모바일학생증발급</span></a></li>
-                                    <li style="padding: 15px ;"><a href="http://isic.co.kr/dongseo/dongseoIndex.jsp" target="_blank"
-                                            title="새창열림"><span>국제학생증발급</span></a></li><br>
+                                    <li style="padding: 15px ;"><a href="http://isic.co.kr/dongseo/dongseoIndex.jsp"
+                                            target="_blank" title="새창열림"><span>국제학생증발급</span></a></li><br>
 
                                     <li style="padding: 15px ;"><a href="?pCode=itservice01" target="_blank"
                                             title="새창열림"><span>IT서비스</span></a></li>
-                                    <li style="padding: 15px ;"><a href="?pCode=MN2000271" target="_blank" title="새창열림"><span>대관시설
+                                    <li style="padding: 15px ;"><a href="?pCode=MN2000271" target="_blank"
+                                            title="새창열림"><span>대관시설
                                                 이용안내</span></a></li>
-                                    <li style="padding: 15px;"><a href="http://uniarlimi.kasfo.or.kr/main/" target="_blank"
-                                            title="새창열림"><span>대학재정알리미</span></a></li>
+                                    <li style="padding: 15px;"><a href="http://uniarlimi.kasfo.or.kr/main/"
+                                            target="_blank" title="새창열림"><span>대학재정알리미</span></a></li>
                                     <li style="padding: 15px;"><a href="https://support.kasfo.or.kr/" target="_blank"
                                             title="새창열림"><span>대학재정회계센터</span></a></li>
                                 </ul>
                             </div>
-                            
+
                         </div>
-    
-                        
+
+
                         <!-- 관련사이트 -->
                         <div class="fsitelink">
-    
-                <div id="footer" class="div-cont">
-                    <div id="fcopyright" class="fcopyright">
-                        <img src="/_Template/Footer/footer-full/_Img/flogo.png" alt="" class="flogo" org_width="131"
-                            org_height="96" isinit="true">
-                        <div class="pinfo">
-                            <span class="addr">부산광역시 사상구 주례로 47 컴퓨터공학부 학과사무실</span>
-                            <span class="ptel">TEL : 051-320-1740~4</span>
-                            <span class="ptel2"></span>
 
-                        </div>
-    
-                </div>
-    
-    
-    
-                <script>
-                    if ($(window).width() <= 420) {
-                        var ftoplink = $('#ftoplink ul');
-                        ftoplink.owlCarousel({
-                            items: 2,
-                            loop: true,
-                            nav: true,
-                            dots: false,
-                            margin: 10,
-                            autoplay: false,
-                            autoplayTimeout: 3000,
-                            autoplayHoverPause: false, //재생/정지버튼 넣을때는 이 옵션 false로, 마우스 인/아웃 이벤트 충돌로 재생/정지 버튼 액션 꼬일수 있음
-                            responsive: {
-                                640: {
-                                    items: 3
-                                },
-                                0: {
-                                    items: 2
-                                }
-                            }
-                        });
-                    }
-    
-    
-                    $(function () {
-                        // Fakes the loading setting a timeout
-                        setTimeout(function () {
-                            $('body').addClass('loaded');
-                        }, 400);
-    
-                        $(window).scroll(function () {
-                            if ($(this).scrollTop() > $(window).height() * 0.2) {
-                                $('.topBt').addClass('over');
-                            } else {
-                                $('.topBt').removeClass('over');
-                            }
-                        });
-    
-                        //Click event to scroll to top
-                        $('.topBt').click(function () {
-                            $('html, body').animate({ scrollTop: 0 }, 300);
-                            return false;
-                        });
-    
-    
-                    });
-    
-                </script>
-                
+                            <div id="footer" class="div-cont">
+                                <div id="fcopyright" class="fcopyright">
+                                    <img src="/_Template/Footer/footer-full/_Img/flogo.png" alt="" class="flogo"
+                                        org_width="131" org_height="96" isinit="true">
+                                    <div class="pinfo">
+                                        <span class="addr">부산광역시 사상구 주례로 47 컴퓨터공학부 학과사무실</span>
+                                        <span class="ptel">TEL : 051-320-1740~4</span>
+                                        <span class="ptel2"></span>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <script>
+                                    if ($(window).width() <= 420) {
+                                        var ftoplink = $('#ftoplink ul');
+                                        ftoplink.owlCarousel({
+                                            items: 2,
+                                            loop: true,
+                                            nav: true,
+                                            dots: false,
+                                            margin: 10,
+                                            autoplay: false,
+                                            autoplayTimeout: 3000,
+                                            autoplayHoverPause: false, //재생/정지버튼 넣을때는 이 옵션 false로, 마우스 인/아웃 이벤트 충돌로 재생/정지 버튼 액션 꼬일수 있음
+                                            responsive: {
+                                                640: {
+                                                    items: 3
+                                                },
+                                                0: {
+                                                    items: 2
+                                                }
+                                            }
+                                        });
+                                    }
+
+
+                                    $(function () {
+                                        // Fakes the loading setting a timeout
+                                        setTimeout(function () {
+                                            $('body').addClass('loaded');
+                                        }, 400);
+
+                                        $(window).scroll(function () {
+                                            if ($(this).scrollTop() > $(window).height() * 0.2) {
+                                                $('.topBt').addClass('over');
+                                            } else {
+                                                $('.topBt').removeClass('over');
+                                            }
+                                        });
+
+                                        //Click event to scroll to top
+                                        $('.topBt').click(function () {
+                                            $('html, body').animate({ scrollTop: 0 }, 300);
+                                            return false;
+                                        });
+
+
+                                    });
+
+                                </script>
+
             </footer>
         </footer>
-    
-    
-    
-        </div>
-    
-    </body>
 
-    </head>
-    
-    </html>
+
+
+    </div>
+
+</body>
+
+</head>
+
+</html>
