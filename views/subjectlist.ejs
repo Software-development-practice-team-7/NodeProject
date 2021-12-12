@@ -7,19 +7,100 @@
 
   <!--   <link rel="stylesheet" type="text/css" href="style.css" >-->
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    #wrap {
+      width: 1200px;
+      height: 0;
+      margin: 0 auto;
+    }
+
+    #header {
+      border-bottom: 2px solid rgb(0, 0, 0);
+      height: 100px;
+      width: 100%;
+      background-color: rgb(194, 3, 30);
+    }
+
+    /*
+        #container{
+                height: 500px;
+                background: rgb(207, 181, 181);
+        }
+        #aside {
+            width: 300px;
+            height: 700px;
+            background: #D3D5F5;
+            float: left;
+        }
+*/
+    #contents {
+      height: 650px;
+      background: linear-gradient(to bottom, rgba(194, 3, 30), pink);
+      /*#ff616183;*/
+      position: center;
+      clear: both;
+
+    }
+
+    #footer-wrap {
+      display: block;
+      background: #31343d;
+      color: #fff;
+
+      /*font-size: 13px;
+            z-index: 400;*/
+    }
+
+    .div-wrap {
+      height: 260px;
+      position: relative;
+      width: 100%;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    #footer {
+      background: #31343d;
+      clear: both;
+      margin-bottom: 0 auto;
+      width: 100%;
+      position: absolute;
+
+    }
+
+    li {
+      /*position: relative;*/
+      display: inline-block;
+    }
+
+    li a {
+      color: #fcfcfc;
+      text-align: center;
+      padding: 15px 80px;
+      text-decoration: none;
+    }
+
     nav {
-      font-size: 12pt;
+      font-size: 14pt;
       position: relative;
     }
 
     nav ul {
       padding: 0;
-      margin: 0 ;
+      margin: 0;
       width: 100%;
     }
 
     nav a {
-      line-height: 50px;
+      line-height: 100px;
       height: 50px;
     }
 
@@ -37,71 +118,59 @@
       display: none;
     }
 
-    .clearfix {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      background-color: rgb(194, 3, 30);
-      line-height: 100px;
-    }
-
-    li {
-      position: relative;
-      display: inline-block;
-    }
-
-    li a {
-      color: #fcfcfc;
-      text-align: center;
-      padding: 14.5px 80px;
-      text-decoration: none;
-
-    }
-
     table,
     th,
     td {
-      border: 1px solid black;
+      background-color: white;
+      border: 3px solid rgb(0, 0, 0);
       border-collapse: collapse;
       text-align: center;
-      /*width: 5px;
-      height: 30px;*/
     }
 
     table {
-      float: right;
-      margin-right: 50px;
-      margin-bottom: 50px;
-      
+      margin: auto;
+      width: 1200px;
     }
 
     td {
-      padding: 30px;
+      text-align: center;
+      margin: 0;
+      padding: 0;
     }
 
     th {
+      background-color: #b9b9b9;
       text-align: center;
-
+      padding: 10px;
+      width: 10px;
     }
-   
 
-    body {
+    .box {
+      width: 150px;
+      padding: 30px;
+      border-radius: 5px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      background: #ffffff;
+    }
+
+    .mouseon:hover {
+      background-color: #b95a5a9f;
+    }
+
+    #button {
+      display: block;
       width: 100%;
-      margin-top: 0%;
-      margin-left: 0;
-      margin-bottom: 0%;
-      margin-right: 0%;
-      position: absolute;
+      height: 45px;
     }
-    #listmenu {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      width: 20%;
-      background-color: #ffffff;
-      position: sta;
-      height: 100%;
-      overflow: auto;
+    #button2 {
+      display: block;
+      width: 100%;
+      height: 62px;
+    }
+    .mouseon2:hover{
+        background:#555 ;
     }
   </style>
 </head>
@@ -110,57 +179,199 @@
 
 <body>
   <header>
-    <div class="menu">
-      <nav class="clearfix">
-        <ul class="clearfix">
-          <li><a href="/"><img src="dsulogo.PNG" style="float:left; height: 100px;"></a></li>
-          <li><a href="/">시간표</a></li>
-          <li><a href="subjectlist.html">전체수강조회</a></li>
-          <li><a href="selectlist.html">신청내역조회</a></li>
-          <li><a href="https://time.navyism.com/?host=naver.com">시간</a></li>
-        </ul>
-        <a id="pull" href="#"></a>
-      </nav>
+    <div id="header">
+      <div>
+        <nav class="clearfix">
+          <ul class="clearfix">
+            <li><a href=""><img src="dsulogo.PNG" style="float:left; height: 100px;"></a></li>
+            <li class="mouseon"><a href="/">시간표</a></li>
+            <li class="mouseon"><a href="/subjectlist.html">전체수강조회</a></li>
+            <li class="mouseon"><a href="/selectlist.html">신청내역조회</a></li>
+            <li class="mouseon"><a href="https://time.navyism.com/?host=naver.com">시간</a></li>
+          </ul>
+          <a id="pull" href="#"></a>
+        </nav>
+      </div>
     </div>
-  </header>
-  <div style="clear: both;">
-    <ul class='listmenu'>
-      <li>학년</li>
-      <li>전공</li>
-      <li></li>
-      <li></li>
-    </ul>
-  </div>
-  <div style="clear: both;"></div>
 
-  <!-- 아래부터 테이블 -->
-  <div>
-    <table style="width:95%">
-      <tr>
-        <th> 번호</th>
-          <th>수업 번호</th>
-          <th>분반</th>
-          <th>교과명</th>
-          <th>교수명</th>
-          <th>과목분류</th>
-          <th>학점</th>
-        </tr>
-          <% for(var i = 0; i< posts.length; i++) { %>
-            <tr  class="colored">
-              <th><%= i+1 %></th>
-              <th><%= posts[i].S_Num %></th>
-              <th><%= posts[i].C_Num %></th>
-              <th><%= posts[i].name %></th>
-              <th><%= posts[i].P_name %></th>
-              <th><%= posts[i].S_Div %></th>
-              <th><%= posts[i].S_Credit %></th>
+    <div id="contents">
+      <!-- 아래부터 테이블 -->
+      <div>
+          <br><br>
+        <table style="width:95%">
+          <tr>
+            <th> 번호</th>
+            <th>수업 번호</th>
+            <th>분반</th>
+            <th>교과명</th>
+            <th>교수명</th>
+            <th>과목분류</th>
+            <th>학점</th>
+            <th>선택</th>
           </tr>
-          <% } %>  
-      
-      
-  </table>
+          <% for(var i=0; i< posts.length; i++) { %>
+            <tr class="colored">
+              <th>
+                <%= i+1 %>
+              </th>
+              <td>
+                <%= posts[i].S_Num %>
+              </td>
+              <td>
+                <%= posts[i].C_Num %>
+              </td>
+              <td>
+                <%= posts[i].name %>
+              </td>
+              <td>
+                <%= posts[i].P_name %>
+              </td>
+              <td>
+                <%= posts[i].S_Div %>
+              </td>
+              <td>
+                <%= posts[i].S_Credit %>
+              </td>
+              <td>
+                <form method="post" action="selectlist.html">
+                  <input type="hidden" name="Name" value="<%= posts[i].name %>">
+                  <input type="hidden" name="P_name" value="<%= posts[i].P_name %>">
+                  <input type="hidden" name="S_Div" value="<%= posts[i].S_Div %>">
+                  <input type="hidden" name="S_Credit" value="<%= posts[i].S_Credit %>">
+                  <button id="button2" type="submit"> 신청하기 </button>
+                </form>
+              </td>
+            </tr>
+            <% } %>
+
+        </table>
+      </div>
+
+    </div>
+    <div>
+      <footer>
+      <footer class="div-wrap footer-wrap" id="footer-wrap">
+          <div id="footer-top-wrap" class="div-wrap">
+              <div id="footer-top" class="div-cont">
+                  <div class="ftoplink-wrap">
+
+                      <div id="ftoplink" class="ftoplink">
+                          <ul>
+                              <li style="padding: 15px;"><a href="http://uni.dongseo.ac.kr/chapel/" target="_blank"
+                                      title="새창열림"><span>교목실</span></a></li>
+                              <li style="padding: 15px ;"><a href="http://uni.dongseo.ac.kr/iec/" target="_blank"
+                                      title="새창열림"><span>국제교류센터</span></a></li>
+                              <li style="padding: 15px;"><a href="https://www.coursera.org/programs/dongseo-university-on-coursera-qvjqm"
+                                      target="_blank" title="새창열림"><span>Coursera</span></a></li>
+                              <li style="padding: 15px ;"><a href="http://library.dongseo.ac.kr/Cheetah/DSU/Index/" target="_blank"
+                                      title="새창열림" onclick="return dongseoSSOLoginLink('library',-1);"><span>민석도서관</span></a></li>
+                                      <br>
+                              <li style="padding: 15px ;"><a href="?pCode=MN2000358" target="_self"><span>학칙관련 규정</span></a></li>
+                              <li style="padding: 15px ;"><a href="?pCode=uwelfmall" target="_blank" title="새창열림"><span>대학생복지몰</span></a></li>
+                              <li style="padding: 15px ;"><a href="http://www.dongseo.ac.kr/kr/index.php?pCode=application"
+                                      target="_blank" title="새창열림"><span>모바일학생증발급</span></a></li>
+                              <li style="padding: 15px ;"><a href="http://isic.co.kr/dongseo/dongseoIndex.jsp" target="_blank"
+                                      title="새창열림"><span>국제학생증발급</span></a></li><br>
+
+                              <li style="padding: 15px ;"><a href="?pCode=itservice01" target="_blank"
+                                      title="새창열림"><span>IT서비스</span></a></li>
+                              <li style="padding: 15px ;"><a href="?pCode=MN2000271" target="_blank" title="새창열림"><span>대관시설
+                                          이용안내</span></a></li>
+                              <li style="padding: 15px;"><a href="http://uniarlimi.kasfo.or.kr/main/" target="_blank"
+                                      title="새창열림"><span>대학재정알리미</span></a></li>
+                              <li style="padding: 15px;"><a href="https://support.kasfo.or.kr/" target="_blank"
+                                      title="새창열림"><span>대학재정회계센터</span></a></li>
+                          </ul>
+                      </div>
+                      
+                  </div>
+
+                  
+                  <!-- 관련사이트 -->
+                  <div class="fsitelink">
+
+          <div id="footer" class="div-cont">
+              <div id="fcopyright" class="fcopyright">
+                  <img src="/_Template/Footer/footer-full/_Img/flogo.png" alt="" class="flogo" org_width="131"
+                      org_height="96" isinit="true">
+                  <div class="pinfo">
+                      <span class="addr">부산광역시 사상구 주례로 47 컴퓨터공학부 학과사무실</span>
+                      <span class="ptel">TEL : 051-320-1740~4</span>
+                      <p><span class="">개발팀 : 소프트웨어개발실습 7조 <p>TEL : 010-xxxx-xxxx</p></span></p>
+                      <span class="ptel2"></span>
+
+                  </div>
+
+          </div>
+
+
+
+          <script>
+              if ($(window).width() <= 420) {
+                  var ftoplink = $('#ftoplink ul');
+                  ftoplink.owlCarousel({
+                      items: 2,
+                      loop: true,
+                      nav: true,
+                      dots: false,
+                      margin: 10,
+                      autoplay: false,
+                      autoplayTimeout: 3000,
+                      autoplayHoverPause: false, //재생/정지버튼 넣을때는 이 옵션 false로, 마우스 인/아웃 이벤트 충돌로 재생/정지 버튼 액션 꼬일수 있음
+                      responsive: {
+                          640: {
+                              items: 3
+                          },
+                          0: {
+                              items: 2
+                          }
+                      }
+                  });
+              }
+
+
+              $(function () {
+                  // Fakes the loading setting a timeout
+                  setTimeout(function () {
+                      $('body').addClass('loaded');
+                  }, 400);
+
+                  $(window).scroll(function () {
+                      if ($(this).scrollTop() > $(window).height() * 0.2) {
+                          $('.topBt').addClass('over');
+                      } else {
+                          $('.topBt').removeClass('over');
+                      }
+                  });
+
+                  //Click event to scroll to top
+                  $('.topBt').click(function () {
+                      $('html, body').animate({ scrollTop: 0 }, 300);
+                      return false;
+                  });
+
+
+              });
+
+          </script>
+          
+      </footer>
+  </footer>
+
+
+
   </div>
 
 </body>
+<script>
+  function NoMultiChk(chk) {
+    var obj = document.getElementsByName("box");
+    for (var i = 0; i < obj.length; i++) {
+      if (obj[i] != chk) {
+        obj[i].checked = false;
+      }
+    }
+  }
+</script>
 
 </html>

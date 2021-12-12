@@ -118,6 +118,7 @@ app.get("/selectlist.html", function (req, res) {
 //수강 완료 페이지
 app.post("/selectlist.html", function (req, res) {
   var databaseUrl = "mongodb://localhost:27017/local";
+
   var s_time = req.body.S_time;
   var s_day = req.body.S_day;
   var name = req.body.Name;
@@ -126,6 +127,9 @@ app.post("/selectlist.html", function (req, res) {
   var s_credit = req.body.S_Credit;
   var s_time1 = req.body.S_time1;
   var s_day1 = req.body.S_day1;
+  var todelete = req.body.toDelete;
+
+  var Delete_name = req.body.Delete_name;
 
   var selectclass = {
     S_time: s_time,
@@ -137,37 +141,57 @@ app.post("/selectlist.html", function (req, res) {
     S_time1: s_time1,
     S_day1: s_day1
   };
-  console.log("selectcalss : " + selectclass.Name);
+
+  var dodelete ={
+    dodelete: todelete
+   }
+
+
 
   MongoClient.connect(databaseUrl, function (err, db) {
     if (err != null) {
       res.send("에러 내용:" + err);
     } else {
       var selectlist = db.db("SelectlistDB");
+      console.log(selectclass);
+      console.log(todelete);
+      if (todelete == 0) {
+        selectlist
+          .collection("item")
+          .find({ $or: [{ Name: name }, { S_day: s_day }, { S_time: s_time }] })
+          .toArray(function (err, result) {
+            if (err) throw err;
+            console.log(result);
 
-      selectlist
-        .collection("item")
-        .find({$or: [{ Name: name }, {S_day:s_day}, {S_time: s_time} ]})
-        .toArray(function (err, result) {
-          if (err) throw err;
-          console.log(result);
+            if (result.length == 0) {
+              selectlist.collection("item").insertOne(selectclass);
+              console.log("db추가 완료");
 
-          if (result.length == 0) {
-            selectlist.collection("item").insertOne(selectclass);
-            console.log("db추가 완료");
+              selectlist
+                .collection("item")
+                .find({})
+                .toArray(function (err, result) {
+                  if (err) throw err;
 
-            selectlist
-              .collection("item")
-              .find({})
-              .toArray(function (err, result) {
-                if (err) throw err;
+                  res.render("selectlist.ejs", { posts: result });
+                });
+            } else {
+              console.log("중복된 수업혹은 중복된 시간입니다.");
+            }
+          });
+      } else if(todelete == 1){
+        selectlist.collection("item").deleteOne({Name : Delete_name});
+        console.log("db삭제 완료");
 
-                res.render("selectlist.ejs", { posts: result });
-              });
-          } else {
-            console.log("중복된 수업혹은 중복된 시간입니다.");
-          }
-        });
+        selectlist
+          .collection("item")
+          .find({})
+          .toArray(function (err, result) {
+            if (err) throw err;
+
+            res.render("selectlist.ejs", { posts: result });
+          });
+      }
     }
   });
 });
@@ -186,5 +210,15 @@ function connectDB() {
     db.close();
 
     database = db;
+  });
+
+  app.delete("/delete", function (req, res) {
+    console.log(req.body._id);
+    db.collection("post").deleteOne(
+      { _id: parseInt(req.body._id) },
+      function (err, result) {
+        console.log("삭제완료");
+      }
+    );
   });
 }

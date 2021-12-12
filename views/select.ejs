@@ -2,194 +2,289 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <title>시간표</title>
+    <meta charset="UTF-8">
+    <title>시간표</title>
 
-  <!--   <link rel="stylesheet" type="text/css" href="style.css" >-->
-  <style>
-    nav {
-      font-size: 12pt;
-      position: relative;
+    <!--   <link rel="stylesheet" type="text/css" href="style.css" >-->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        #wrap {
+            width: 1200px;
+            height: 0;
+            margin: 0 auto;
+        }
+
+        #header {
+            border-bottom: 2px solid rgb(0, 0, 0);
+            height: 100px;
+            width: 100%;
+            background-color: rgb(194, 3, 30);
+        }
+
+        /*
+    #container{
+            height: 500px;
+            background: rgb(207, 181, 181);
     }
-
-    nav ul {
-      padding: 0;
-      margin: 0 ;
-      width: 100%;
+    #aside {
+        width: 300px;
+        height: 700px;
+        background: #D3D5F5;
+        float: left;
     }
+*/
+        #contents {
+            height: 650px;
+            background: linear-gradient(to bottom, rgba(194, 3, 30), pink);
+            /*#ff616183;*/
+            position: center;
+            clear: both;
 
-    nav a {
-      line-height: 50px;
-      height: 50px;
-    }
+        }
+        #contents2 {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to bottom, rgba(77, 57, 150, 0.548), pink);
+            /*#ff616183;*/
+            position: center;
+            clear: both;
+            position: fixed;
 
-    nav li a {
-      box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-    }
+        }
 
-    nav li:last-child a {
-      border-right: 0;
-    }
+        #footer-wrap {
+            display: block;
+            background: #31343d;
+            color: #fff;
 
-    nav a#pull {
-      display: none;
-    }
+            /*font-size: 13px;
+        z-index: 400;*/
+        }
 
-    .clearfix {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      background-color: rgb(194, 3, 30);
-      line-height: 100px;
-    }
+        .div-wrap {
+            height: 260px;
+            position: relative;
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+        }
 
-    li {
-      position: relative;
-      display: inline-block;
-    }
+        #footer {
+            background: #31343d;
+            clear: both;
+            margin-bottom: 0 auto;
+            width: 100%;
+            position: absolute;
 
-    li a {
-      color: #fcfcfc;
-      text-align: center;
-      padding: 14.5px 80px;
-      text-decoration: none;
+        }
 
-    }
+        li {
+            /*position: relative;*/
+            display: inline-block;
+        }
 
-    table,
-    th,
-    td {
-      border: 1px solid black;
-      border-collapse: collapse;
-      text-align: center;
-      /*width: 5px;
-      height: 30px;*/
-    }
+        li a {
+            color: #fcfcfc;
+            text-align: center;
+            padding: 15px 80px;
+            text-decoration: none;
+        }
 
-    table {
-      float: right;
-      margin-right: 50px;
-      margin-bottom: 50px;
-      
-    }
+        nav {
+            font-size: 14pt;
+            position: relative;
+        }
 
-    td {
-      padding: 30px;
-    }
+        nav ul {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
 
-    th {
-      text-align: center;
+        nav a {
+            line-height: 100px;
+            height: 50px;
+        }
 
-    }
-   
+        nav li a {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
 
-    body {
-      width: 100%;
-      margin-top: 0%;
-      margin-left: 0;
-      margin-bottom: 0%;
-      margin-right: 0%;
-      position: absolute;
-    }
-    #listmenu {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      width: 20%;
-      background-color: #ffffff;
-      position: sta;
-      height: 100%;
-      overflow: auto;
-    }
-  </style>
+        nav li:last-child a {
+            border-right: 0;
+        }
+
+        nav a#pull {
+            display: none;
+        }
+
+        table,
+        th,
+        td {
+            background-color: white;
+            border: 3px solid rgb(0, 0, 0);
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        table {
+            margin: auto;
+            width: 1200px;
+        }
+
+        td {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        th {
+            background-color: #b9b9b9;
+            text-align: center;
+            padding: 10px;
+            width: 10px;
+        }
+
+        .box {
+            width: 150px;
+            padding: 30px;
+            border-radius: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background: #ffffff;
+        }
+
+        .mouseon:hover {
+            background-color: #b95a5a9f;
+        }
+
+        #button {
+            display: block;
+            width: 100%;
+            height: 45px;
+
+        }
+
+        #button3 {
+            display: block;
+            width: 100%;
+            height: 60px;
+
+        }
+
+        .mouseon2:hover {
+            background: #555;
+        }
+    </style>
 </head>
 
 <!-- 아래부터 상단 메뉴바 -->
 
 <body>
-  <header>
-    <div class="menu">
-      <nav class="clearfix">
-        <ul class="clearfix">
-          <li><a href="/"><img src="dsulogo.PNG" style="float:left; height: 100px;"></a></li>
-          <li><a href="/">시간표</a></li>
-          <li><a href="subjectlist.html">전체수강조회</a></li>
-          <li><a href="/selectlist.html">신청내역조회</a></li>
-          <li><a href="https://time.navyism.com/?host=naver.com">시간</a></li>
-        </ul>
-        <a id="pull" href="#"></a>
-      </nav>
-    </div>
-  </header>
-  <div style="clear: both;">
-    <ul class='listmenu'>
-      <li>학년</li>
-      <li>전공</li>
-      <li></li>
-      <li></li>
-    </ul>
-  </div>
+    <!-- 아래부터 상단 메뉴바
+    <div id="header">
+        <div>
+          <nav class="clearfix">
+            <ul class="clearfix">
+              <li><a href=""><img src="dsulogo.PNG" style="float:left; height: 100px;"></a></li>
+              <li class="mouseon"><a href="/">시간표</a></li>
+              <li class="mouseon"><a href="/subjectlist.html">전체수강조회</a></li>
+              <li class="mouseon"><a href="/selectlist.html">신청내역조회</a></li>
+              <li class="mouseon"><a href="https://time.navyism.com/?host=naver.com">시간</a></li>
+            </ul>
+            <a id="pull" href="#"></a>
+          </nav>
+        </div>
+      </div>
   <div style="clear: both;"></div>
+    -->
+    <!-- 아래부터 테이블 -->
+    <div>
+        <div id="contents2">
+            <br><br>
+            <table style="width:95%">
+                <tr>
+                    <th> 번호</th>
+                    <th>수업 번호</th>
+                    <th>요일</th>
+                    <th>시간</th>
+                    <th>분반</th>
+                    <th>교과명</th>
+                    <th>교수명</th>
+                    <th>과목분류</th>
+                    <th>학점</th>
+                    <th>선택</th>
+                </tr>
+                <% for(var i=0; i< posts.length; i++) { %>
+                    <tr class="colored">
+                        <th>
+                            <%= i+1 %>
+                        </th>
+                        <td>
+                            <%= posts[i].S_day %>
+                        </td>
+                        <td>
+                            <%= posts[i].S_time %>
+                        </td>
+                        <td>
+                            <%= posts[i].S_Num %>
+                        </td>
+                        <td>
+                            <%= posts[i].C_Num %>
+                        </td>
+                        <td>
+                            <%= posts[i].name %>
+                        </td>
+                        <td>
+                            <%= posts[i].P_name %>
+                        </td>
+                        <td>
+                            <%= posts[i].S_Div %>
+                        </td>
+                        <td>
+                            <%= posts[i].S_Credit %>
+                        </td>
+                        <td>
+                            <form method="post" action="selectlist.html">
+                                <input type="hidden" name="S_day" value="<%= posts[i].S_day %>">
+                                <input type="hidden" name="S_time" value="<%= posts[i].S_time %>">
+                                <input type="hidden" name="Name" value="<%= posts[i].name %>">
+                                <input type="hidden" name="P_name" value="<%= posts[i].P_name %>">
+                                <input type="hidden" name="S_Div" value="<%= posts[i].S_Div %>">
+                                <input type="hidden" name="S_Credit" value="<%= posts[i].S_Credit %>">
+                                <input type="hidden" name="S_day1" value="<%= posts[i].S_day1 %>">
+                                <input type="hidden" name="S_time1" value="<%= posts[i].S_time1 %>">
+                                <input type="hidden" name="toDelete" value="0">
+                                <button id="button3" type="submit"> 신청하기 </button>
+                            </form>
+                            </th>
+                    </tr>
+                    <% } %>
+            </table>
 
-  <!-- 아래부터 테이블 -->
-  <div>
-    <table style="width:95%">
-      <tr>
-        <th> 번호</th>
-          <th>수업 번호</th>
-          <th>요일</th>
-          <th>시간</th>
-          <th>분반</th>
-          <th>교과명</th>
-          <th>교수명</th>
-          <th>과목분류</th>
-          <th>학점</th>
-          <th>선택</th>
-        </tr>
-          <% for(var i = 0; i< posts.length; i++) { %>
-            <tr  class="colored">
-              <th><%= i+1 %></th>
-              <th><%= posts[i].S_day %></th>
-              <th><%= posts[i].S_time %></th>
-              <th><%= posts[i].S_Num %></th>
-              <th><%= posts[i].C_Num %></th>
-              <th><%= posts[i].name %></th>
-              <th><%= posts[i].P_name %></th>
-              <th><%= posts[i].S_Div %></th>
-              <th><%= posts[i].S_Credit %></th>
-              <th>
-                <form method="post" action="selectlist.html"> 
-                  <input type="hidden" name="S_day" value="<%= posts[i].S_day %>">
-                  <input type="hidden" name="S_time"value="<%= posts[i].S_time %>">
-                  <input type="hidden" name="Name" value="<%= posts[i].name %>">
-                  <input type="hidden" name="P_name"value="<%= posts[i].P_name %>">
-                  <input type="hidden" name="S_Div" value="<%= posts[i].S_Div %>">
-                  <input type="hidden" name="S_Credit"value="<%= posts[i].S_Credit %>">
-                  <input type="hidden" name="S_day1" value="<%= posts[i].S_day1 %>">
-                  <input type="hidden" name="S_time1"value="<%= posts[i].S_time1 %>">
-                  <button type="submit"> 신청하기 </button>
-                </form>
-              </th>
-          </tr>
-          <% } %>  
-      
-      
-  </table>
-
-  </div>
-
+        </div>
+    </div>
 </body>
 <script>
-  function NoMultiChk(chk) {
-    var obj = document.getElementsByName("box");
-    for (var i = 0; i < obj.length; i++) {
-      if (obj[i] != chk) {
-        obj[i].checked = false;
-      }
+    function NoMultiChk(chk) {
+        var obj = document.getElementsByName("box");
+        for (var i = 0; i < obj.length; i++) {
+            if (obj[i] != chk) {
+                obj[i].checked = false;
+            }
+        }
     }
-  }
 </script>
 
 </html>
