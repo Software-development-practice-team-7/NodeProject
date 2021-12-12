@@ -1,3 +1,4 @@
+
 var http = require("http");
 var fs = require("fs");
 var path = require("path");
@@ -142,6 +143,8 @@ app.post("/selectlist.html", function (req, res) {
     S_day1: s_day1
   };
 
+
+
   var dodelete ={
     dodelete: todelete
    }
@@ -158,7 +161,7 @@ app.post("/selectlist.html", function (req, res) {
       if (todelete == 0) {
         selectlist
           .collection("item")
-          .find({ $or: [{ Name: name }, { S_day: s_day }, { S_time: s_time }] })
+          .find({ $or: [{ Name: name }, {$and: [{ S_day: s_day }, { S_time: s_time }]}]})
           .toArray(function (err, result) {
             if (err) throw err;
             console.log(result);
@@ -173,7 +176,7 @@ app.post("/selectlist.html", function (req, res) {
                 .toArray(function (err, result) {
                   if (err) throw err;
 
-                  res.render("selectlist.ejs", { posts: result });
+                  res.render("main.ejs", { posts: result });
                 });
             } else {
               console.log("중복된 수업혹은 중복된 시간입니다.");

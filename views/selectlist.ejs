@@ -42,7 +42,7 @@
         }
 */
         #contents {
-            height: 650px;
+            height: 820px;
             background: linear-gradient(to bottom, rgba(194, 3, 30), pink);
             /*#ff616183;*/
             position: center;
@@ -60,7 +60,7 @@
         }
 
         .div-wrap {
-            height: 260px;
+            height: 100px;
             position: relative;
             width: 100%;
             text-align: center;
@@ -84,7 +84,7 @@
         li a {
             color: #fcfcfc;
             text-align: center;
-            padding: 15px 80px;
+            padding: 40px 100px;
             text-decoration: none;
         }
 
@@ -201,7 +201,7 @@
             </nav>
         </div>
     </div>
-    <div id="contents">
+    <div id="contents" style="overflow-y:auto;">
         <!-- 아래부터 테이블 -->
         <div>
             <br><br>
@@ -235,7 +235,7 @@
                             <form method="post" action="selectlist.html"> 
                                 <input type="hidden" name="Delete_name"value="<%= posts[i].Name %>">
                                 <input type="hidden" name="toDelete" value="1">
-                                <button type="submit"> 삭제하기 </button>
+                                <button id="button2" type="submit"> 삭제하기 </button>
                             </form>
                         </td>
                     </tr>
@@ -249,7 +249,7 @@
     <footer>
         <footer class="div-wrap footer-wrap" id="footer-wrap">
             <div id="footer-top-wrap" class="div-wrap">
-                <div id="footer-top" class="div-cont">
+                <!--<div id="footer-top" class="div-cont">
                     <div class="ftoplink-wrap">
 
                         <div id="ftoplink" class="ftoplink">
@@ -287,7 +287,7 @@
                             </ul>
                         </div>
 
-                    </div>
+                    </div>-->
 
 
                     <!-- 관련사이트 -->

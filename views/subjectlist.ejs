@@ -42,7 +42,7 @@
         }
 */
     #contents {
-      height: 650px;
+      height: 820px;
       background: linear-gradient(to bottom, rgba(194, 3, 30), pink);
       /*#ff616183;*/
       position: center;
@@ -60,7 +60,7 @@
     }
 
     .div-wrap {
-      height: 260px;
+      height: 100px;
       position: relative;
       width: 100%;
       text-align: center;
@@ -82,11 +82,11 @@
     }
 
     li a {
-      color: #fcfcfc;
-      text-align: center;
-      padding: 15px 80px;
-      text-decoration: none;
-    }
+            color: #fcfcfc;
+            text-align: center;
+            padding: 40px 100px;
+            text-decoration: none;
+        }
 
     nav {
       font-size: 14pt;
@@ -194,21 +194,20 @@
       </div>
     </div>
 
-    <div id="contents">
+    <div id="contents" style="overflow-y:auto;">
       <!-- 아래부터 테이블 -->
-      <div>
-          <br><br>
-        <table style="width:95%">
+      
+      <div  >
+          <br><br><br>
+        <table style="width:95%" >
           <tr>
-            <th> 번호</th>
+            <th>번호</th>
             <th>수업 번호</th>
             <th>분반</th>
             <th>교과명</th>
             <th>교수명</th>
             <th>과목분류</th>
             <th>학점</th>
-            <th>선택</th>
-          </tr>
           <% for(var i=0; i< posts.length; i++) { %>
             <tr class="colored">
               <th>
@@ -232,18 +231,18 @@
               <td>
                 <%= posts[i].S_Credit %>
               </td>
+              <!--
               <td>
                 <form method="post" action="selectlist.html">
                   <input type="hidden" name="Name" value="<%= posts[i].name %>">
                   <input type="hidden" name="P_name" value="<%= posts[i].P_name %>">
                   <input type="hidden" name="S_Div" value="<%= posts[i].S_Div %>">
                   <input type="hidden" name="S_Credit" value="<%= posts[i].S_Credit %>">
-                  <button id="button2" type="submit"> 신청하기 </button>
                 </form>
-              </td>
+              </td>-->
             </tr>
             <% } %>
-
+          </tr>
         </table>
       </div>
 
@@ -253,7 +252,7 @@
       <footer class="div-wrap footer-wrap" id="footer-wrap">
           <div id="footer-top-wrap" class="div-wrap">
               <div id="footer-top" class="div-cont">
-                  <div class="ftoplink-wrap">
+                  <!--<div class="ftoplink-wrap">
 
                       <div id="ftoplink" class="ftoplink">
                           <ul>
@@ -284,7 +283,7 @@
                           </ul>
                       </div>
                       
-                  </div>
+                  </div>-->
 
                   
                   <!-- 관련사이트 -->
